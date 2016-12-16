@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+    <title>TO DO List</title>
+    <!-- CSS -->
+    <!-- 3rd party -->
+    <link href="assets/libs/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet"/>
+    <link href="assets/libs/bootstrap-3.3.7/css/bootstrap-theme.css" rel="stylesheet"/>
+    <!-- app -->
+
+    <!-- JS -->
+    <!-- 3rd party -->
+    <script src="assets/libs/angular/angular.js"></script>
+    <script src="assets/libs/angular/angular-animate.js"></script>
+    <script src="assets/libs/angular/angular-mocks.js"></script>
+    <script src="assets/libs/angular/angular-route.js"></script>
+    <script src="assets/libs/angular/angular-sanitize.js"></script>
+    <script src="assets/libs/angular/angular-touch.js"></script>
+    <script src="assets/libs/angular/angular-ui-router.js"></script>
+    <!-- app -->
+
+    <script>
+        var todoApp = angular.module("todoApp", []);
+    </script>
+</head>
+<body>
+<div class="page-header">
+    <h1>Adam's To Do List</h1>
+</div>
+<div class="panel">
+    <div class="input-group">
+        <input class="form-control"/>
+        <span class="input-group-btn">
+                <button class="btn btn-default">Add</button>
+            </span>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Description</th>
+            <th>Done</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Buy Flowers</td><td>No</td>
+        </tr>
+        <tr>
+            <td>Get Shoes</td><td>No</td>
+        </tr>
+        <tr>
+            <td>Collect Tickets</td><td>Yes</td>
+        </tr>
+        <tr>
+            <td>Call Joe</td><td>No</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
