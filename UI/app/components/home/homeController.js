@@ -1,3 +1,3 @@
-﻿function homeController() {
-    
+﻿function homeController($scope) {
+    $scope.data = "Olaf";
 }
