@@ -5,10 +5,12 @@
         // HOME STATES AND NESTED VIEWS ========================================
         .state("home",
         {
-            url: "home",
+            url: "/",
             templateUrl: "../app/components/home/homeView.html",
             controller: "homeController"
         });
+
+    $urlRouterProvider.otherwise("/");
 
     // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
     //.state("about",
