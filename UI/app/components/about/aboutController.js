@@ -1,7 +1,7 @@
 ﻿angular.module("app")
-    .controller("homeController",
+    .controller("aboutController",
     [
         "$scope", function ($scope) {
-            $scope.data = "Olaf";
+            $scope.title = "About";
         }
     ]);

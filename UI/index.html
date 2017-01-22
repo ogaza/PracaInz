@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>App</title>
+    
+    <base href="/" />
+
     <!-- CSS -->
     <!-- 3rd party -->
     <link href="assets/libs/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet"/>
@@ -19,9 +22,10 @@
     <script src="assets/libs/angular/angular-touch.js"></script>-->
     <script src="assets/libs/angular/angular-ui-router.js"></script>
     <!-- app -->
-    <script src="app/components/home/homeController.js"></script>
-    <script src="app/app.module.js"></script>    
+    <script src="app/app.module.js"></script>
     <script src="app/app.routes.js"></script>
+    <script src="app/components/home/homeController.js"></script>
+    <script src="app/components/about/aboutController.js"></script>
 </head>
 <body ng-app="app">
 
@@ -33,9 +37,9 @@
         <li>
             <a ui-sref="home" href="">Home</a>
         </li>
-        <!--<li>
-            <a ui-sref="about">About</a>
-        </li>-->
+        <li>
+            <a ui-sref="about" href="">About</a>
+        </li>
     </ul>
 </nav>
 
