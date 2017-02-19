@@ -1,0 +1,70 @@
+{
+	"id": "4352548f-2565-2b47-bcb0-196ebc58350b",
+	"name": "PracaInz_API",
+	"description": "",
+	"order": [
+		"cfdb8431-a4b5-c470-6e58-d5bf38f01da8",
+		"932bb4cd-608b-ffdb-642f-48d35a801fc2"
+	],
+	"folders": [],
+	"timestamp": 1487513865869,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "932bb4cd-608b-ffdb-642f-48d35a801fc2",
+			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Bearer 7ohzzMFg5sUAtv55dueS0gUuutB1VaaKx2FZOdtDqqADBvQFYl_6CuuUtbWaVA3VukYnf6jGbvPSw6Yi8t_B-arv0x9jubWZOJ_CHBsmzU-jq-Tmf5hDSonCZ7mFMx_UbTHUq7oLzumGFDifClTH12G19Rf8H3KRD3LLp0vhzlXoRW2S8UKafrh_3e24Bf5mBFh1XOzlC6lUmPPmHBknyUsJovr_QDn5t0GqQ-biSIE\n",
+			"url": "http://localhost:10001/api/orders",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1487515436799,
+			"name": "Get Orders",
+			"description": "",
+			"collectionId": "4352548f-2565-2b47-bcb0-196ebc58350b",
+			"responses": []
+		},
+		{
+			"id": "cfdb8431-a4b5-c470-6e58-d5bf38f01da8",
+			"headers": "Accept: application/json\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost:10001/token",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "grant_type",
+					"value": "password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "olaf",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "haselko",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1487515421295,
+			"name": "Get Token",
+			"description": "",
+			"collectionId": "4352548f-2565-2b47-bcb0-196ebc58350b",
+			"responses": []
+		}
+	]
+}
