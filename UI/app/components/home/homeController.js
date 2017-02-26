@@ -1,7 +1,11 @@
 ﻿angular.module("app")
     .controller("homeController",
     [
-        "$scope", function ($scope) {
+        "$scope", "authService", function ($scope, authService) {
             $scope.data = "Olaf";
+
+            $scope.onClickTest = function() {
+                 authService.test();
+            }
         }
     ]);

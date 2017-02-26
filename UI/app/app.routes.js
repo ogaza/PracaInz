@@ -5,7 +5,7 @@
         // HOME STATES AND NESTED VIEWS ========================================
         .state("home",
         {
-            url: "/home",
+            url: "/",
             templateUrl: "../app/components/home/homeView.html",
             controller: "homeController"
         })
