@@ -1,0 +1,15 @@
+<form class="form-login" role="form" name="loginForm">
+    <h2 class="form-login-heading">Login</h2>
+    <input type="text" class="form-control" placeholder="Username" ng-model="loginData.userName" required autofocus>
+    <input type="password" class="form-control" placeholder="Password" ng-model="loginData.password" required>
+    <input type="email" class="form-control" placeholder="Email" ng-model="loginData.email" ng-pattern="emailFormat" required>
+    <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="login()">Login</button>
+     <div ng-hide="message == ''" class="alert alert-danger">
+        {{message}}
+    </div>
+
+    <!-- <tt>email: {{loginData.email}}</tt><br/>
+    <tt>is email undefined: {{loginData.email === undefined}}</tt><br/>
+    <tt>form is valid: {{loginForm.$valid}}</tt><br/>
+    <tt>error in email field: {{!!loginForm.$error.email}}</tt><br/> -->
+</form>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>App</title>
-    
+
     <base href="/" />
 
     <!-- CSS -->
@@ -22,16 +22,17 @@
     <script src="assets/libs/angular/angular-touch.js"></script>-->
     <script src="assets/libs/angular/angular-local-storage.js"></script>
     <script src="assets/libs/angular/angular-ui-router.js"></script>
-    
+
     <!-- app -->
     <script src="app/app.module.js"></script>
     <script src="app/app.routes.js"></script>
-    
+
     <!-- services -->
     <script src="app/shared/auth/authService.js"></script>
     <!-- controllers -->
     <script src="app/components/home/homeController.js"></script>
     <script src="app/components/about/aboutController.js"></script>
+    <script src="app/components/login/loginController.js"></script>
 </head>
 <body ng-app="app">
 
@@ -45,6 +46,9 @@
         </li>
         <li>
             <a ui-sref="about" href="">About</a>
+        </li>
+        <li>
+            <a ui-sref="login" href="">Log in</a>
         </li>
     </ul>
 </nav>
