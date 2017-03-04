@@ -1,10 +1,19 @@
 <form class="form-login" role="form" name="loginForm">
     <h2 class="form-login-heading">Login</h2>
-    <input type="text" class="form-control" placeholder="Username" ng-model="loginData.userName" required autofocus>
-    <input type="password" class="form-control" placeholder="Password" ng-model="loginData.password" required>
-    <input type="email" class="form-control" placeholder="Email" ng-model="loginData.email" ng-pattern="emailFormat" required>
-    <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="login()">Login</button>
-     <div ng-hide="message == ''" class="alert alert-danger">
+    <a ui-sref="signup" href="#">Signup</a>
+    <input
+      type="text" class="form-control" placeholder="Username" required autofocus
+      ng-model="loginData.userName">
+    <input type="password" class="form-control" placeholder="Password" required
+      ng-model="loginData.password">
+    <input type="email" class="form-control" placeholder="Email" required
+      ng-model="loginData.email" ng-pattern="emailFormat">
+    <button class="btn btn-lg btn-info btn-block" type="submit"
+      ng-click="login()">
+      Login
+    </button>
+    <div class="alert alert-danger"
+      ng-hide="message == ''">
         {{message}}
     </div>
 

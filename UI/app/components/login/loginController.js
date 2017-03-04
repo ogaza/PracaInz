@@ -1,23 +1,22 @@
-angular.module("app")
-    .controller("loginController",
-    [
-        "$scope", "$location", "authService", function ($scope, $location, authService) {
+angular.module('app')
+    .controller('loginController', ['$scope', '$location', 'authService',
 
-            $scope.loginData = {
-              userName: "",
-              password: ""
-            };
+      function ($scope, $location, authService) {
+        $scope.loginData = {
+          userName: '',
+          password: ''
+        }
 
-            $scope.emailFormat = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
+        $scope.emailFormat = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/
 
-            $scope.message = "";
+        $scope.message = ''
 
-            $scope.login = function() {
-              authService
+        $scope.login = function () {
+          authService
               .login($scope.loginData)
               .then(
-                function(response){ $location.path("/orders");},
-                function(error){ $scope.message = error.error_description;});
-            };
+                function (response) { $location.path('/orders') },
+                function (error) { $scope.message = error.error_description })
         }
+      }
     ]);

@@ -22,6 +22,12 @@
             url: "/login",
             templateUrl: "../app/components/login/loginView.html",
             controller: "loginController"
+        })
+        .state("signup",
+        {
+            url: "/signup",
+            templateUrl: "../app/components/signup/signupView.html",
+            controller: "signupController"
         });
 
     $urlRouterProvider.otherwise("home");
