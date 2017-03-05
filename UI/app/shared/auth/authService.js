@@ -36,25 +36,25 @@ angular.module('app')
 
       var deferred = $q.defer()
 
-      $http.post(serviceBase + 'token', data,
-        {
+      $http.post(serviceBase + 'token', data, {
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
-        })
-        .success(function (response) {
-          localStorageService.set(
-                      'authorizationData',
-            {
-              token: response.access_token, userName: loginData.userName
-            })
-          _authentication.isAuth = true
-          _authentication.user.name = loginData.userName
-          deferred.resolve(response)
-        }).error(function (err) {
-          _logOut()
-          deferred.reject(err)
-        })
+        }).then(
+          function (response) {
+            localStorageService.set(
+                        'authorizationData',
+              {
+                token: response.access_token, userName: loginData.userName
+              })
+            _authentication.isAuth = true
+            _authentication.user.name = loginData.userName
+            deferred.resolve(response);
+          },
+          function (err) {
+            _logOut();
+            deferred.reject(err);
+        });
 
       return deferred.promise
     }

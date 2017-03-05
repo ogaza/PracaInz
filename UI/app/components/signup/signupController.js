@@ -11,7 +11,7 @@ angular.module('app')
           userName: '',
           password: '',
           confirmPassword: ''
-        }
+        };
 
         $scope.signUp = function () {
           authService.saveRegistration($scope.registration)
@@ -31,14 +31,14 @@ angular.module('app')
                      $scope.errors.push(response.data.modelState[key][i]);
                  }
               }
-            })
-        }
+            });
+        };
 
         var startTimer = function () {
           var timer = $timeout(function () {
             $timeout.cancel(timer)
             $location.path('/login')
           }, 2000)
-        }
+        };
       }
-    ])
+    ]);

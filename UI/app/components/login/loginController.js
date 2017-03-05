@@ -15,7 +15,7 @@ angular.module('app')
           authService
               .login($scope.loginData)
               .then(
-                function (response) { $location.path('/orders') },
+                function (response) { $location.path('/') },
                 function (error) { $scope.message = error.error_description })
         }
       }
