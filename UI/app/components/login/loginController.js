@@ -19,4 +19,4 @@ angular.module('app')
                 function (error) { $scope.message = error.error_description })
         }
       }
-    ]);
+    ])

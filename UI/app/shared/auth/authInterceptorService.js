@@ -6,45 +6,44 @@
 // This service needs to be registered within the angular -> eg in app.module.js
 angular.module('app')
   .factory('authInterceptorService',
-    ['$q', '$location', 'localStorageService',
-    function($q, $location, localStorageService){
-      var authInterceptor = {};
+  ['$q', '$location', 'localStorageService',
+    function ($q, $location, localStorageService) {
+      var authInterceptor = {}
 
       // fired before $http sends a request to the backend
       var _request = function (config) {
-
         // do nothing when we try to get access token
         // TODO: check what happens when we send any post request which
         // is probably preceeded with an OPTIONS request
-        if(config.url.endsWith('token')) {
-          return config;
+        if (config.url.endsWith('token')) {
+          return config
         }
 
-        config.headers = config.headers || {};
+        config.headers = config.headers || {}
 
-        var authData = localStorageService.get('authorizationData');
+        var authData = localStorageService.get('authorizationData')
 
         if (authData && authData.token) {
-            config.headers.Authorization = 'Bearer ' + authData.token;
+          config.headers.Authorization = 'Bearer ' + authData.token
         }
 
-        return config;
-      };
+        return config
+      }
 
       // fired after a response from the backend is received
       var _responseError = function (rejection) {
-        if(rejection.status === 401){
-          $location.path('/login');
+        if (rejection.status === 401) {
+          $location.path('/login')
         }
 
-        return $q.reject(rejection);
-      };
+        return $q.reject(rejection)
+      }
 
-      authInterceptor.request = _request;
-      authInterceptor.responseError = _request;
+      authInterceptor.request = _request
+      authInterceptor.responseError = _request
 
-      return authInterceptor;
-  }]);
+      return authInterceptor
+    }])
 
   // angular.module("app").config(['$httpProvider', function ($httpProvider) {
   //     $httpProvider.interceptors.push('authInterceptorService');

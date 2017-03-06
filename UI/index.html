@@ -1,66 +1,63 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>App</title>
+  <meta charset="utf-8">
+  <title>App</title>
+  <base href="/" />
+  <!-- CSS -->
+  <!-- 3rd party -->
+  <link href="assets/libs/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet"/>
+  <link href="assets/libs/bootstrap-3.3.7/css/bootstrap-theme.css" rel="stylesheet"/>
+  <!-- app -->
 
-    <base href="/" />
+  <!-- JS -->
+  <!-- 3rd party -->
+  <script src="assets/libs/angular/angular.js"></script>
+  <!--<script src="assets/libs/angular/angular-animate.js"></script>
+  <script src="assets/libs/angular/angular-mocks.js"></script>-->
+  <!--<script src="assets/libs/angular/angular-route.js"></script>-->
+  <!--<script src="assets/libs/angular/angular-sanitize.js"></script>
+  <script src="assets/libs/angular/angular-touch.js"></script>-->
+  <script src="assets/libs/angular/angular-local-storage.js"></script>
+  <script src="assets/libs/angular/angular-ui-router.js"></script>
 
-    <!-- CSS -->
-    <!-- 3rd party -->
-    <link href="assets/libs/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet"/>
-    <link href="assets/libs/bootstrap-3.3.7/css/bootstrap-theme.css" rel="stylesheet"/>
-    <!-- app -->
+  <!-- app -->
+  <script src="app/app.module.js"></script>
+  <script src="app/app.routes.js"></script>
 
-    <!-- JS -->
-    <!-- 3rd party -->
-    <script src="assets/libs/angular/angular.js"></script>
-    <!--<script src="assets/libs/angular/angular-animate.js"></script>
-    <script src="assets/libs/angular/angular-mocks.js"></script>-->
-    <!--<script src="assets/libs/angular/angular-route.js"></script>-->
-    <!--<script src="assets/libs/angular/angular-sanitize.js"></script>
-    <script src="assets/libs/angular/angular-touch.js"></script>-->
-    <script src="assets/libs/angular/angular-local-storage.js"></script>
-    <script src="assets/libs/angular/angular-ui-router.js"></script>
-
-    <!-- app -->
-    <script src="app/app.module.js"></script>
-    <script src="app/app.routes.js"></script>
-
-    <!-- services -->
-    <script src="app/shared/auth/authService.js"></script>
-    <script src="app/shared/auth/authInterceptorService.js"></script>
-    <!-- controllers -->
-    <script src="app/components/home/homeController.js"></script>
-    <script src="app/components/about/aboutController.js"></script>
-    <script src="app/components/login/loginController.js"></script>
-    <script src="app/components/signup/signupController.js"></script>
+  <!-- auth services -->
+  <script src="app/shared/auth/authService.js"></script>
+  <script src="app/shared/auth/authInterceptorService.js"></script>
+  <!-- services -->
+  <script src="app/components/posts/postsService.js"></script>
+  <!-- controllers -->
+  <script src="app/components/home/homeController.js"></script>
+  <script src="app/components/about/aboutController.js"></script>
+  <script src="app/components/login/loginController.js"></script>
+  <script src="app/components/signup/signupController.js"></script>
 </head>
 <body ng-app="app">
 
 <nav class="navbar navbar-inverse" role="navigation">
-    <!--<div class="navbar-header">
-        <a class="navbar-brand" ui-sref="">AngularUI Router</a>
-    </div>-->
-    <ul class="nav navbar-nav">
-        <li>
-            <a ui-sref="home" href="">Home</a>
-        </li>
-        <li>
-            <a ui-sref="about" href="">About</a>
-        </li>
-        <li>
-            <a ui-sref="login" href="">Log in</a>
-        </li>
-    </ul>
+  <!--<div class="navbar-header">
+      <a class="navbar-brand" ui-sref="">AngularUI Router</a>
+  </div>-->
+  <ul class="nav navbar-nav">
+    <li>
+      <a ui-sref="home" href="">Home</a>
+    </li>
+    <li>
+      <a ui-sref="about" href="">About</a>
+    </li>
+    <li>
+      <a ui-sref="login" href="">Log in</a>
+    </li>
+  </ul>
 </nav>
-
 <!-- MAIN CONTENT -->
 <div class="container">
-
-    <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
-    <div ui-view></div>
-
+  <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+  <div ui-view></div>
 </div>
 </body>
 </html>
