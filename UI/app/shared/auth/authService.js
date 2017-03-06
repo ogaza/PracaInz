@@ -12,14 +12,14 @@ angular.module('app')
     authServiceFactory.test = function () {
       $log.log('test message')
       $log.log('test second message')
-    }
+    };
 
-    var serviceBase = 'http://localhost:10001/'
+    var serviceBase = 'http://localhost:10001/';
 
     var _authentication = {
       isAuth: false,
       user: {}
-    }
+    };
 
     var _saveRegistration = function (registration) {
       _logOut();
@@ -32,9 +32,9 @@ angular.module('app')
 
     var _login = function (loginData) {
       var data = 'grant_type=password&username='
-                 + loginData.userName + '&password=' + loginData.password
+                 + loginData.userName + '&password=' + loginData.password;
 
-      var deferred = $q.defer()
+      var deferred = $q.defer();
 
       $http.post(serviceBase + 'token', data, {
           headers: {
@@ -43,42 +43,41 @@ angular.module('app')
         }).then(
           function (response) {
             localStorageService.set(
-                        'authorizationData',
+              'authorizationData',
               {
-                token: response.access_token, userName: loginData.userName
-              })
-            _authentication.isAuth = true
-            _authentication.user.name = loginData.userName
+                token: response.data.access_token, userName: loginData.userName
+              });
+            _authentication.isAuth = true;
+            _authentication.user.name = loginData.userName;
             deferred.resolve(response);
           },
           function (err) {
             _logOut();
             deferred.reject(err);
         });
-
-      return deferred.promise
+      return deferred.promise;
     }
 
     var _logOut = function () {
-      localStorageService.remove('authorizationData')
+      localStorageService.remove('authorizationData');
 
-      _authentication.isAuth = false
-      _authentication.user = {}
+      _authentication.isAuth = false;
+      _authentication.user = {};
     }
 
     var _fillAuthData = function () {
       var authData = localStorageService.get('authorizationData')
       if (authData) {
-        _authentication.isAuth = true
-        _authentication.user.name = authData.userName
+        _authentication.isAuth = true;
+        _authentication.user.name = authData.userName;
       }
     }
 
-    authServiceFactory.saveRegistration = _saveRegistration
-    authServiceFactory.login = _login
-    authServiceFactory.logOut = _logOut
-    authServiceFactory.fillAuthData = _fillAuthData
-    authServiceFactory.authentication = _authentication
+    authServiceFactory.saveRegistration = _saveRegistration;
+    authServiceFactory.login = _login;
+    authServiceFactory.logOut = _logOut;
+    authServiceFactory.fillAuthData = _fillAuthData;
+    authServiceFactory.authentication = _authentication;
 
-    return authServiceFactory
+    return authServiceFactory;
   }])

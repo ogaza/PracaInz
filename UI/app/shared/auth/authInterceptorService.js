@@ -12,11 +12,19 @@ angular.module('app')
 
       // fired before $http sends a request to the backend
       var _request = function (config) {
+
+        // do nothing when we try to get access token
+        // TODO: check what happens when we send any post request which
+        // is probably preceeded with an OPTIONS request
+        if(config.url.endsWith('token')) {
+          return config;
+        }
+
         config.headers = config.headers || {};
 
         var authData = localStorageService.get('authorizationData');
 
-        if (authData) {
+        if (authData && authData.token) {
             config.headers.Authorization = 'Bearer ' + authData.token;
         }
 
