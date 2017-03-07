@@ -1,0 +1,284 @@
+
+/* *********************************************** */
+/* Comon */
+/* *********************************************** */
+
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    font-size: 18px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+body h2 {
+    margin-top: 0;
+}
+
+a{
+    color: rgb(66, 95, 156);
+}
+
+a:visited, a:active, a:focus {
+    text-decoration: none;
+}
+
+a:hover{
+    color: rgb(106, 135, 196);
+    text-decoration: none;
+}
+
+.button {
+    background: none;
+    border: none;
+    color: rgb(66, 95, 156);
+    cursor: pointer;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    padding: 0;
+}
+
+.button:hover{
+    color: rgb(106, 135, 196);
+}
+
+.margin-top-10{
+    margin: 10px 0 0;
+}
+
+.margin-top-20{
+    margin: 20px 0 0;
+}
+
+.text-align-center{
+    text-align: center;
+}
+
+.text-align-left{
+    text-align: left;
+}
+
+.text-align-right{
+    text-align: right;
+}
+
+h1{
+    font-size: 2.5em;
+    margin: 0 0 8px
+}
+
+h2{
+    font-size: 2em;
+}
+
+/* *********************************************** */
+/* Sticky footer */
+/* *********************************************** */
+
+.page-wrap {
+    background-color: rgb(240, 240, 240);
+    min-height: 100%;
+    /* equal to app-footer height */
+    margin-bottom: -50px;
+}
+
+.page-wrap:after {
+    content: "";
+    display: block;
+    /* equal to app-footer height */
+    height: 50px;
+}
+
+/* *********************************************** */
+/* App Common */
+/* *********************************************** */
+
+.app-common {
+    margin: auto;
+    max-width: 800px;
+    padding: 5px;
+}
+
+.app-elem-wrap {
+    background-color: rgb(66, 95, 156);
+}
+
+/* *********************************************** */
+/* App Header */
+/* *********************************************** */
+
+.app-header{
+    background-color: rgb(66, 95, 156);
+    color: white;
+}
+
+.app-header a{
+    color: white;
+}
+
+.app-header a:hover{
+    color: rgb(200, 200, 200);
+}
+
+.app-header .user-name{
+    display: inline;
+}
+
+/* *********************************************** */
+/* App Nav */
+/* *********************************************** */
+
+.app-nav {
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+.app-nav .menu-item {
+    display: inline-block;
+    padding: 10px;
+}
+
+.app-nav .menu-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.app-nav .menu-item a:hover {
+    color: rgb(146, 175, 236);
+}
+
+/* *********************************************** */
+/* App Content */
+/* *********************************************** */
+
+.app-content{
+
+}
+
+/* *********************************************** */
+/* App Footer */
+/* *********************************************** */
+
+.app-footer{
+    background-color: rgb(66, 95, 156);
+    color: white;
+    height: 50px;
+    padding: 5px;
+}
+
+/* *********************************************** */
+/* Add Post */
+/* *********************************************** */
+
+.add-post-container{
+    border: 1px solid #CCC;
+    border-radius: 0.5em;
+    margin: 10px auto;
+    padding: 10px 15px;
+}
+
+.add-post-container .buttons {
+    font-size: 1em;
+    margin: 5px 0 0;
+}
+
+.add-post-container input, textarea {
+    border: 1px solid #999;
+    font-size: 1em;
+    padding: 2px;
+    width: 100%;
+}
+
+.add-post-container input,
+.add-post-container textarea{
+    display: block;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    margin: 10px 0;
+}
+
+.add-post-container input:focus, textarea:focus {
+    border-color: #000;
+}
+
+.add-post-container textarea {
+    margin: 10px 0;
+    resize: vertical;
+}
+
+/* *********************************************** */
+/* Post list */
+/* *********************************************** */
+
+.post-container{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 0.5em;
+    margin: 5px 0;
+    padding: 5px 5px 0 5px;
+}
+
+.post-content{
+    padding: 5px 10px;
+    text-align: justify;
+}
+
+.post-dateAdded{
+    color: rgb(130, 130, 130);
+    font-size: 0.6em;
+    padding: 0 10px;
+}
+
+.post-links{
+    font-size: 0.75em;
+    padding: 5px 10px;
+    /*text-align: center;*/
+}
+
+.post-links a{
+    color: rgb(60, 60, 60);
+    margin-right: 10px;
+}
+
+.post-links a:hover{
+    color: rgb(150, 150, 150);
+}
+
+/* *********************************************** */
+/* Login view */
+/* *********************************************** */
+
+.loginForm-container{
+  margin: 10px auto;
+  padding: 10px 15px;
+  width: 50%;
+}
+
+.loginForm-container .buttons {
+  font-size: 1em;
+  margin: 10px 0 0;
+}
+
+.loginForm-container form {
+  border: 1px solid #CCC;
+  border-radius: 0.5em;
+  padding: 10px 15px;
+}
+
+.loginForm-container input {
+    border: 1px solid #999;
+    display: block;
+    font-size: 1em;
+    margin: 10px 0;
+    padding: 2px;
+    width: 100%;
+}
+
+.loginForm-container input:focus {
+    border-color: #000;
+}
+
+.loginForm-register {
+  margin: 20px 0;
+  font-size: 0.8em;
+}

@@ -1,24 +1,20 @@
-<form class="form-login" role="form" name="loginForm">
-    <h2 class="form-login-heading">Login</h2>
-    <a ui-sref="signup" href="#">Signup</a>
-    <input
-      type="text" class="form-control" placeholder="Username" required autofocus
-      ng-model="loginData.userName">
-    <input type="password" class="form-control" placeholder="Password" required
-      ng-model="loginData.password">
-    <!-- <input type="email" class="form-control" placeholder="Email" required
-      ng-model="loginData.email" ng-pattern="emailFormat"> -->
-    <button class="btn btn-lg btn-info btn-block" type="submit"
-      ng-click="login()">
-      Login
-    </button>
-    <div class="alert alert-danger"
-      ng-hide="message == ''">
-        {{message}}
+<div id="loginForm" class="loginForm-container">
+  <form role="form" name="loginForm">
+    <div>
+      <input type="text" placeholder="Username" required autofocus
+        ng-model="loginData.userName"/>
+      <input type="password" placeholder="Password" required
+        ng-model="loginData.password">
     </div>
+    <div class="buttons">
+      <a ng-click="login()" href="#">Login</a>
+    </div>
+  </form>
 
-    <!-- <tt>email: {{loginData.email}}</tt><br/>
-    <tt>is email undefined: {{loginData.email === undefined}}</tt><br/>
-    <tt>form is valid: {{loginForm.$valid}}</tt><br/>
-    <tt>error in email field: {{!!loginForm.$error.email}}</tt><br/> -->
-</form>
+  <div class="loginForm-register">
+    <div>You don't have an account?</div>
+    <div class="margin-top-10">
+      <a ui-sref="signup" href="#">Register</a>
+    </div>
+  </div>
+</div>

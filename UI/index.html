@@ -8,7 +8,11 @@
   <!-- 3rd party -->
   <link href="assets/libs/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet"/>
   <link href="assets/libs/bootstrap-3.3.7/css/bootstrap-theme.css" rel="stylesheet"/>
+
   <!-- app -->
+  <!-- CSS -->
+  <link href="assets/css/reset.css" rel="stylesheet"/>
+  <link href="assets/css/app.css" rel="stylesheet"/>
 
   <!-- JS -->
   <!-- 3rd party -->
@@ -37,27 +41,27 @@
   <script src="app/components/signup/signupController.js"></script>
 </head>
 <body ng-app="app">
+  <div class="page-wrap">
+    <div class="app-elem-wrap">
+      <div class="app-header app-common">
+        <h1>Go social app!</h1>
+      </div>
+    </div>
 
-<nav class="navbar navbar-inverse" role="navigation">
-  <!--<div class="navbar-header">
-      <a class="navbar-brand" ui-sref="">AngularUI Router</a>
-  </div>-->
-  <ul class="nav navbar-nav">
-    <li>
+    <nav class="app-nav app-common ">
       <a ui-sref="home" href="">Home</a>
-    </li>
-    <li>
       <a ui-sref="about" href="">About</a>
-    </li>
-    <li>
       <a ui-sref="login" href="">Log in</a>
-    </li>
-  </ul>
-</nav>
-<!-- MAIN CONTENT -->
-<div class="container">
-  <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
-  <div ui-view></div>
-</div>
+    </nav>
+
+    <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+    <div ui-view class="app-content app-common ">
+    </div>
+  </div>
+  <div class="app-elem-wrap">
+    <div class="app-footer app-common">
+      2017
+    </div>
+  </div>
 </body>
 </html>
