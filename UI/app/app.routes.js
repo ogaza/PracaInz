@@ -29,6 +29,13 @@ angular.module('app')
         templateUrl: '../app/components/signup/signupView.html',
         controller: 'signupController'
       })
+      .state('posts',
+      {
+        // url: '/signup',
+        url: '/posts',
+        templateUrl: '../app/components/posts/postsView.html',
+        controller: 'postsController'
+      })
 
     $urlRouterProvider.otherwise('home')
 

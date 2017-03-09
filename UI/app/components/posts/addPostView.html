@@ -1,0 +1,18 @@
+﻿
+<div class="add-post-container">
+  <form ng-submit="savePost()">
+    <div>
+      <!--<input type="text" id="title" name="title" placeholder="tytuł" />-->
+      <textarea id="content"
+        rows="4"
+        name="content"
+        placeholder="treść..."
+        ng-model="post.text">
+      </textarea>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="button">Zapisz</button>
+      <a ui-sref="posts">Anuluj</a>
+    </div>
+  </form>
+</div>
