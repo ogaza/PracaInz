@@ -2,12 +2,12 @@ angular.module('app')
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
       // HOME STATES AND NESTED VIEWS ========================================
-      .state('home',
-      {
-        url: '/',
-        templateUrl: '../app/components/home/homeView.html',
-        controller: 'homeController'
-      })
+      // .state('home',
+      // {
+      //   url: '/',
+      //   templateUrl: '../app/components/home/homeView.html',
+      //   controller: 'homeController'
+      // })
       // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
       .state('about',
       {
@@ -24,7 +24,8 @@ angular.module('app')
       })
       .state('signup',
       {
-        url: '/signup',
+        // url: '/signup',
+        url: '/',
         templateUrl: '../app/components/signup/signupView.html',
         controller: 'signupController'
       })

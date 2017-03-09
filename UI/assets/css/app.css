@@ -246,26 +246,38 @@ h2{
 
 /* *********************************************** */
 /* Login view */
+/* Sign up view*/
 /* *********************************************** */
 
-.loginForm-container{
-  margin: 10px auto;
-  padding: 10px 15px;
+.loginForm-container {
   width: 50%;
 }
 
-.loginForm-container .buttons {
+.signupForm-container{
+  width: 75%;
+}
+
+.loginForm-container, .signupForm-container {
+  margin: 10px auto;
+  padding: 10px 15px;
+  /*width: 50%;*/
+}
+
+.loginForm-container .buttons,
+.signupForm-container .buttons{
   font-size: 1em;
   margin: 10px 0 0;
 }
 
-.loginForm-container form {
+.loginForm-container form,
+.signupForm-container form {
   border: 1px solid #CCC;
   border-radius: 0.5em;
   padding: 10px 15px;
 }
 
-.loginForm-container input {
+.loginForm-container input,
+.signupForm-container input{
     border: 1px solid #999;
     display: block;
     font-size: 1em;
@@ -274,7 +286,8 @@ h2{
     width: 100%;
 }
 
-.loginForm-container input:focus {
+.loginForm-container input:focus,
+.signupForm-container input:focus {
     border-color: #000;
 }
 
