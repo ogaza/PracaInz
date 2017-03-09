@@ -2,19 +2,27 @@ angular.module('app')
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
       // HOME STATES AND NESTED VIEWS ========================================
-      // .state('home',
-      // {
-      //   url: '/',
-      //   templateUrl: '../app/components/home/homeView.html',
-      //   controller: 'homeController'
-      // })
-      // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-      .state('about',
+      .state('home',
       {
-        url: '/about',
-        templateUrl: '../app/components/about/aboutView.html',
-        controller: 'aboutController'
+        url: '/',
+        templateUrl: '../app/components/home/homeView.html',
+        controller: 'homeController'
       })
+      // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
+      // .state('about',
+      // {
+      //   url: '/about',
+      //   templateUrl: '../app/components/about/aboutView.html',
+      //   controller: 'aboutController'
+      // })
+      // Posts view
+      .state('posts',
+      {
+        url: '/posts',
+        templateUrl: '../app/components/posts/postsView.html',
+        controller: 'postsController'
+      })
+
       // login PAGE
       .state('login',
       {
@@ -24,17 +32,9 @@ angular.module('app')
       })
       .state('signup',
       {
-        // url: '/signup',
-        url: '/',
+        url: '/signup',
         templateUrl: '../app/components/signup/signupView.html',
         controller: 'signupController'
-      })
-      .state('posts',
-      {
-        // url: '/signup',
-        url: '/posts',
-        templateUrl: '../app/components/posts/postsView.html',
-        controller: 'postsController'
       })
 
     $urlRouterProvider.otherwise('home')
