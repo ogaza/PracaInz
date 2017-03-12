@@ -1,7 +1,7 @@
 angular.module('app')
-    .controller('loginController', ['$scope', '$location', 'authService',
+    .controller('loginController', ['$scope', '$state', 'authService',
 
-      function ($scope, $location, authService) {
+      function ($scope, $state, authService) {
         $scope.loginData = {
           userName: '',
           password: ''
@@ -15,7 +15,9 @@ angular.module('app')
           authService
               .login($scope.loginData)
               .then(
-                function (response) { $location.path('/') },
+                function (response) {
+                  $state.transitionTo('posts')
+                },
                 function (error) { $scope.message = error.error_description })
         }
       }

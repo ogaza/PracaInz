@@ -1,7 +1,7 @@
 angular.module('app')
-    .controller('signupController', ['$scope', '$location', '$timeout', 'authService',
+    .controller('signupController', ['$scope', '$state', '$timeout', 'authService',
 
-      function ($scope, $location, $timeout, authService) {
+      function ($scope, $state, $timeout, authService) {
         $scope.savedSuccessfully = false
         $scope.message = ''
 
@@ -36,7 +36,7 @@ angular.module('app')
         var startTimer = function () {
           var timer = $timeout(function () {
             $timeout.cancel(timer)
-            $location.path('/login')
+            $state.transitionTo('login')
           }, 2000)
         }
       }

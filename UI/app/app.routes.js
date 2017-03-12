@@ -23,6 +23,25 @@ angular.module('app')
         controller: 'postsController'
       })
 
+      .state('posts.add',
+      {
+        url: '/add',
+        templateUrl: '../app/components/posts/addPostView.html',
+        controller: 'addPostController'
+      })
+
+      .state('posts.edit',
+      {
+        url: '/{id}/edit',
+        templateUrl: '../app/components/posts/addPostView.html',
+        controller: 'addPostController' //,
+        // resolve: {
+        //   post: function($stateParams, postsService) {
+        //     return postsService.get($stateParams.id)
+        //   }
+        // }
+      })
+
       // login PAGE
       .state('login',
       {

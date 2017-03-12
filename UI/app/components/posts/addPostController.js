@@ -1,16 +1,16 @@
 angular.module('app')
     .controller('addPostController',
   [
-    '$scope', '$location', 'postsService',
-    function ($scope, $location, postsService) {
-      $scope.post = {
-        text: ''
-      }
+    '$scope', '$state', '$stateParams', 'postsService',
+    function ($scope, $state, $stateParams, postsService) {
+      $scope.post = $stateParams.id ?
+        postsService.get($stateParams.id) :
+        { text: '' }
 
       $scope.savePost = function () {
         postsService.save($scope.post)
 
-        $location.path('/posts')
+        $state.transitionTo('posts')
       }
     }
   ])

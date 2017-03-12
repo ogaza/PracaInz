@@ -7,10 +7,8 @@
       {{post.dateAdded}}
     </li>
     <li class="post-links">
-      <!-- <a ui-sref="">Edit</a>
-      <a ui-sref="">Delete</a> -->
-      <a href="#">Edit</a>
-      <a href="#">Delete</a>
+      <a href="#" ng-click="onEdit({postId: post.id})">Edit</a>
+      <a href="#" ng-click="onDelete({postId: post.id})">Delete</a>
     </li>
   </ul>
 </div>

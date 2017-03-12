@@ -1,6 +1,10 @@
-
 <div>
+  <div ui-view></div>
   <h2>Notes</h2>
   <a ui-sref='posts.add'>Add</a>
-  <post ng-repeat='post in posts' post='post' />
+  <post
+    ng-repeat='post in posts'
+    post='post'
+    on-edit='editPost(postId)'
+    on-delete='deletePost(postId)' />
 </div>
