@@ -14,6 +14,10 @@ angular.module('app')
 
       $scope.deletePost = function (id) {
         console.log('about to delete post: ' + id)
+
+        postsService.remove(id);
+
+        $state.transitionTo('posts')
       }
     }
   ])

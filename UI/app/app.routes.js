@@ -26,15 +26,15 @@ angular.module('app')
       .state('posts.add',
       {
         url: '/add',
-        templateUrl: '../app/components/posts/addPostView.html',
-        controller: 'addPostController'
+        templateUrl: '../app/components/posts/editPostView.html',
+        controller: 'editPostController'
       })
 
       .state('posts.edit',
       {
         url: '/{id}/edit',
-        templateUrl: '../app/components/posts/addPostView.html',
-        controller: 'addPostController' //,
+        templateUrl: '../app/components/posts/editPostView.html',
+        controller: 'editPostController' //,
         // resolve: {
         //   post: function($stateParams, postsService) {
         //     return postsService.get($stateParams.id)

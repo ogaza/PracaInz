@@ -8,7 +8,7 @@ angular.module('app')
         onDelete: '&'
       },
       templateUrl: '../app/shared/directives/post/postView.html',
-      link: function (scope, elm, attrs) {
-      }
+      // link: function (scope, elm, attrs) {
+      // }
     }
   })

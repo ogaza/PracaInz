@@ -35,10 +35,11 @@
   <!-- services -->
   <script src="app/shared/services/postsService.js"></script>
   <!-- directives -->
+  <script src="app/shared/directives/navbar/navbarDirective.js"></script>
   <script src="app/shared/directives/post/postDirective.js"></script>
   <!-- controllers -->
   <script src="app/components/posts/postsController.js"></script>
-  <script src="app/components/posts/addPostController.js"></script>
+  <script src="app/components/posts/editPostController.js"></script>
   <script src="app/components/home/homeController.js"></script>
   <!-- <script src="app/components/about/aboutController.js"></script> -->
   <script src="app/components/login/loginController.js"></script>
@@ -52,11 +53,12 @@
       </div>
     </div>
 
-    <nav class="app-nav app-common ">
+    <navbar></navbar>
+    <!-- <nav class="app-nav app-common ">
       <a ui-sref="home" href="">Home</a>
       <a ui-sref="posts" href="">Posts</a>
       <a ui-sref="login" href="">Log in</a>
-    </nav>
+    </nav> -->
 
     <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
     <div ui-view class="app-content app-common ">

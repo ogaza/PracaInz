@@ -1,0 +1,6 @@
+<div class="app-nav app-common ">
+  <a ui-sref="home" href="#" ng-show="auth.isAuth">Home</a>
+  <a ui-sref="posts" href="#" ng-show="auth.isAuth">Posts</a>
+  <a ui-sref="login" href="#" ng-hide="auth.isAuth">Log in</a>
+  <a href="#" ng-show="auth.isAuth" ng-click="logout()">Log out</a>
+</div>

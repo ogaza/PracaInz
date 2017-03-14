@@ -1,6 +1,7 @@
 ﻿
 <div class="add-post-container">
-  <form ng-submit="savePost()">
+  <!-- <form ng-submit="savePost()"> -->
+  <form>
     <div>
       <!--<input type="text" id="title" name="title" placeholder="tytuł" />-->
       <textarea id="content"
@@ -11,8 +12,9 @@
       </textarea>
     </div>
     <div class="buttons">
-      <button type="submit" class="button">Zapisz</button>
-      <a ui-sref="posts">Anuluj</a>
+      <!-- <button type="submit" class="button">Zapisz</button> -->
+      <a href="#" ng-click="savePost()">Save</a>
+      <a ui-sref="posts">Cancel</a>
     </div>
   </form>
 </div>
