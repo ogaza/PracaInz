@@ -12,3 +12,14 @@ angular.module('app')
       // }
     }
   })
+  .directive('comment', function () {
+    return {
+      restrict: 'E',
+      scope: {
+        comment: '='
+      },
+      templateUrl: '../app/shared/directives/post/commentView.html',
+      // link: function (scope, elm, attrs) {
+      // }
+    }
+  })

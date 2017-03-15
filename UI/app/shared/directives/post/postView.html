@@ -10,5 +10,14 @@
       <a href="#" ng-click="onEdit({postId: post.id})">Edit</a>
       <a href="#" ng-click="onDelete({postId: post.id})">Delete</a>
     </li>
+    <li class="post-comments-container" >
+      <comment ng-repeat="comment in post.comments" comment="comment" />
+    </li>
+        <!-- {/if} -->
+        <!-- {if isset($selectedPostId) && $selectedPostId == $post->id}
+        <li>
+            {include file='views/partials/addCommentView.tpl' postId=$selectedPostId}
+        </li>
+        {/if} -->
   </ul>
 </div>

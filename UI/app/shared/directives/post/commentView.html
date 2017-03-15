@@ -1,0 +1,16 @@
+<ul class="comment-container">
+  <li class="comment-author">
+    {{comment.author}}
+  </li>
+  <li class="comment-dateAdded">
+    {{comment.date}}
+  </li>
+  <li class="comment-content">
+    {{comment.content}}
+  </li>
+  <!-- {if $isUserLoggedIn}
+  <li class="comment-links">
+    <a href="/?controller=main&action=deleteComment&id={$comment->id}">Usuń</a>
+  </li>
+  {/if} -->
+</ul>

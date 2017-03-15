@@ -2,16 +2,38 @@ angular.module('app')
   .factory('postsService',
     function () {
       var posts = []
+      var post
+      var comments
+      var j
 
       var lastId = 0
 
       for (var i = 1; i <= 5; i++) {
-        posts.push({
+
+        j = 1
+
+        comments = [{
+          author: 'author ' + i + j,
+          date: new Date(),
+          content: 'content ' + i + j++
+        },
+        {
+          author: 'author ' + i + j,
+          date: new Date(),
+          content: 'content ' + i + j
+        }]
+
+        post = {
           id: i,
           // author: "Author " + i,
           text: 'this is post ' + i,
-          dateAdded: new Date()
-        })
+          dateAdded: new Date(),
+          comments: comments
+        }
+
+
+
+        posts.push(post)
 
         lastId = i
       }
@@ -27,7 +49,7 @@ angular.module('app')
             return elem.id === idAsInt
           })
 
-          return post
+          return { id: post.id, text: post.text}
         },
         save: function (post) {
           if (!post.id) {
