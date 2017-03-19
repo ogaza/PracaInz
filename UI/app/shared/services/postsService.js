@@ -31,8 +31,6 @@ angular.module('app')
           comments: comments
         }
 
-
-
         posts.push(post)
 
         lastId = i

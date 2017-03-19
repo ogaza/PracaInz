@@ -1,11 +1,11 @@
 <ul class="comment-container">
-  <li class="comment-author">
+  <li class="comment-author" ng-hide="isInEditMode">
     {{comment.author}}
   </li>
-  <li class="comment-dateAdded">
+  <li class="comment-dateAdded" ng-hide="isInEditMode">
     {{comment.date}}
   </li>
-  <li class="comment-content">
+  <li class="comment-content" ng-hide="isInEditMode">
     {{comment.content}}
   </li>
   <!-- {if $isUserLoggedIn}
@@ -13,4 +13,26 @@
     <a href="/?controller=main&action=deleteComment&id={$comment->id}">Usuń</a>
   </li>
   {/if} -->
+  <li class="new-comment-container" ng-show="isInEditMode">
+    <span class="new-comment-text-container">
+      <textarea rows="1">{{comment.content}}</textarea>
+    </span>
+    <span class="new-comment-link-container">
+      <a href="#" ng-click="onAddComment({postId: post.id})">Comment</a>
+    </span>
+  </li>
+  <li ng-hide="isInEditMode">
+    <a ng-click="isInEditMode=true">Edit</a>
+  </li>
 </ul>
+
+<!-- <ul class="new-comment-container">
+  <li >
+    <span class="new-comment-text-container">
+      <textarea rows="1"></textarea>
+    </span>
+    <span class="new-comment-link-container">
+      <a href="#" ng-click="onAddComment({postId: post.id})">Comment</a>
+    </span>
+  </li>
+</ul> -->

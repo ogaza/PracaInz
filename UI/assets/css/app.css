@@ -268,9 +268,44 @@ h2{
     font-size: 0.75em;
 }
 
-.comment-links{
+.comment-links {
     font-size: 0.8em;
     padding: 0 0 0;
+}
+
+/* new comment */
+
+.new-comment-container {
+  background-color: rgb(240, 240, 240);
+  margin: 0 0 5px;
+  padding: 5px 0;
+  /*position: relative;*/
+}
+
+.new-comment-container textarea {
+  border: 1px solid rgb(200, 200, 200);
+  /*font-size: 0.75em;*/
+  padding: 5px 0;
+  resize: none;
+}
+
+.new-comment-container a {
+  color: rgb(60, 60, 60);
+  /*font-size: 0.75em;*/
+}
+
+.new-comment-link-container {
+  display: inline-block;
+  float: right;
+  margin-top: 4px;
+  text-align: center;
+  width: 20%;
+}
+
+.new-comment-text-container {
+  display: inline-block;
+  margin-left: -1px;
+  width: 80%
 }
 
 /* *********************************************** */
