@@ -26,21 +26,28 @@ angular.module('app')
 
       .state('posts.add',
       {
+
         url: '/add',
         templateUrl: '../app/components/posts/editPostView.html',
-        controller: 'editPostController'
+        controller: 'editPostController',
+        resolve: {
+          selectedPost: function($stateParams, postsService) {
+            return {}
+          }
+        }
       })
 
       .state('posts.edit',
       {
         url: '/{id}/edit',
-        templateUrl: '../app/components/posts/editPostView.html',
-        controller: 'editPostController' //,
-        // resolve: {
-        //   post: function($stateParams, postsService) {
-        //     return postsService.get($stateParams.id)
-        //   }
-        // }
+        // templateUrl: '../app/components/posts/editPostView.html',
+        templateUrl: '../app/components/posts/postsView.html',
+        controller: 'editPostController',
+        resolve: {
+          selectedPost: function($stateParams, postsService) {
+            return postsService.get($stateParams.id)
+          }
+        }
       })
 
       // login PAGE

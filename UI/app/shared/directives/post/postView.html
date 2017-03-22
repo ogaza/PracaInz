@@ -13,6 +13,9 @@
     <li class="post-comments-container" >
       <comment ng-repeat="comment in post.comments" comment="comment" />
     </li>
+    <li ng-show='isInEditMode'>
+      This post is in an edit mode
+    </li>
         <!-- {/if} -->
         <!-- {if isset($selectedPostId) && $selectedPostId == $post->id}
         <li>

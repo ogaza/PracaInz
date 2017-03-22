@@ -5,11 +5,13 @@ angular.module('app')
       scope: {
         post: '=',
         onEdit: '&',
-        onDelete: '&'
+        onDelete: '&',
+        isInEditMode: '='
       },
       templateUrl: '../app/shared/directives/post/postView.html',
-      // link: function (scope, elm, attrs) {
-      // }
+      link: function (scope, elm, attrs) {
+        // scope.selectedPost = {id: 1}
+      }
     }
   })
   .directive('comment', function () {
