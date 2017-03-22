@@ -2,50 +2,37 @@ angular.module('app')
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
       // HOME STATES AND NESTED VIEWS ========================================
-      // .state('home',
-      // {
-      //   url: '/',
-      //   templateUrl: '../app/components/home/homeView.html',
-      //   controller: 'homeController'
-      // })
-      // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-      // .state('about',
-      // {
-      //   url: '/about',
-      //   templateUrl: '../app/components/about/aboutView.html',
-      //   controller: 'aboutController'
-      // })
+      .state('home',
+      {
+        url: '/',
+        templateUrl: '../app/components/home/homeView.html',
+        controller: 'homeController'
+      })
       // Posts view
       .state('posts',
       {
-        // url: '/posts',
-        url: '/',
+        url: '/posts',
+        // url: '/',
         templateUrl: '../app/components/posts/postsView.html',
-        controller: 'postsController'
-      })
-
-      .state('posts.add',
-      {
-
-        url: '/add',
-        templateUrl: '../app/components/posts/editPostView.html',
-        controller: 'editPostController',
+        controller: 'postsController',
         resolve: {
-          selectedPost: function($stateParams, postsService) {
-            return {}
+          posts: function (postsService) {
+            return postsService.getAll()
+          },
+          selectedPostId: function () {
+            return 0
           }
         }
       })
-
       .state('posts.edit',
       {
         url: '/{id}/edit',
         // templateUrl: '../app/components/posts/editPostView.html',
         templateUrl: '../app/components/posts/postsView.html',
-        controller: 'editPostController',
+        controller: 'postsController',
         resolve: {
-          selectedPost: function($stateParams, postsService) {
-            return postsService.get($stateParams.id)
+          selectedPostId: function ($stateParams) {
+            return $stateParams.id
           }
         }
       })
@@ -65,6 +52,7 @@ angular.module('app')
       })
 
     $urlRouterProvider.otherwise('home')
+    // $urlRouterProvider.otherwise('posts')
 
     // use the HTML5 History API
     $locationProvider.html5Mode(true)

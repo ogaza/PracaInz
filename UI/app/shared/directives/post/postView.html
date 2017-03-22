@@ -1,4 +1,4 @@
-<div class="post-container">
+<div class="post-container" ng-hide='isInEditMode'>
   <ul>
     <li class="post-content">
       {{post.text}}
@@ -13,22 +13,25 @@
     <li class="post-comments-container" >
       <comment ng-repeat="comment in post.comments" comment="comment" />
     </li>
-    <li ng-show='isInEditMode'>
-      This post is in an edit mode
-    </li>
-        <!-- {/if} -->
-        <!-- {if isset($selectedPostId) && $selectedPostId == $post->id}
-        <li>
-            {include file='views/partials/addCommentView.tpl' postId=$selectedPostId}
-        </li>
-        {/if} -->
-    <!-- <li class="new-comment-container">
-      <span class="new-comment-text-container">
-        <textarea rows="1"></textarea>
-      </span>
-      <span class="new-comment-link-container">
-        <a href="#" ng-click="onAddComment({postId: post.id})">Comment</a>
-      </span>
-    </li> -->
   </ul>
+</div>
+
+<div class="add-post-container" ng-show='isInEditMode'>
+  <!-- <form ng-submit="savePost()"> -->
+  <form>
+    <div>
+      <!--<input type="text" id="title" name="title" placeholder="tytuł" />-->
+      <textarea id="content"
+        rows="4"
+        name="content"
+        placeholder="treść..."
+        ng-model="post.text">
+      </textarea>
+    </div>
+    <div class="buttons">
+      <!-- <button type="submit" class="button">Zapisz</button> -->
+      <a href="#" ng-click="onSave({post: post})">Save</a>
+      <a ui-sref="posts">Cancel</a>
+    </div>
+  </form>
 </div>

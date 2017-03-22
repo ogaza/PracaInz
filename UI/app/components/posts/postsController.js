@@ -1,8 +1,19 @@
 angular.module('app')
     .controller('postsController',
   [
-    '$scope', '$state', 'postsService', function ($scope, $state, postsService) {
-      $scope.posts = postsService.getAll()
+    '$scope', '$state', 'postsService', 'posts', 'selectedPostId',
+      function ($scope, $state, postsService, posts, selectedPostId) {
+
+      $scope.selectedPostId = selectedPostId
+
+      $scope.newPost = {}
+
+      $scope.posts = posts
+
+      $scope.savePost = function (post) {
+        postsService.save(post)
+        $state.transitionTo('posts')
+      }
 
       $scope.editPost = function (id) {
         console.log('about to edit post: ' + id)

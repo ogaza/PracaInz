@@ -6,6 +6,7 @@ angular.module('app')
         post: '=',
         onEdit: '&',
         onDelete: '&',
+        onSave: '&',
         isInEditMode: '='
       },
       templateUrl: '../app/shared/directives/post/postView.html',

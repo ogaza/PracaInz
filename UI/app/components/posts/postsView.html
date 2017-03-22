@@ -1,11 +1,17 @@
 <div ui-view>
   <h2>Posts {{selectedPost.id}}</h2>
-  <a ui-sref='posts.add'>Add</a>
+  <!-- <a ui-sref='posts.add'>Add</a> -->
+  <post
+    post='newPost'
+    on-save='savePost(post)'
+    is-in-edit-mode='true'>
+  </post>
   <post
     ng-repeat='post in posts'
     post='post'
     on-edit='editPost(postId)'
     on-delete='deletePost(postId)'
-    is-in-edit-mode='selectedPost.id == post.id'
-    />
+    on-save='savePost(post)'
+    is-in-edit-mode='selectedPostId == post.id'>
+  </post>
 </div>
