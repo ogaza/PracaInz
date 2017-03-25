@@ -23,7 +23,11 @@
   </li>
 
   <li ng-hide="isInEditMode">
-    <a ng-click="isInEditMode=true">Edit</a>
+    <!-- <a ng-click="isInEditMode=true">Edit</a> -->
+    <a href="#"
+      ng-click="onEdit({postId: post.id, commentId: comment.id})">
+      Edit
+    </a>
   </li>
 </ul>
 

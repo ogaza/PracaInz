@@ -1,17 +1,22 @@
 <div ui-view>
-  <h2>Posts {{selectedPost.id}}</h2>
+  <h2>{{currentStateName}} {{selectedPostId}} {{selectedCommentId}}</h2>
   <!-- <a ui-sref='posts.add'>Add</a> -->
   <post
     post='newPost'
-    on-save='savePost(post)'
-    is-in-edit-mode='true'>
+    on-save='onSavePostClick(post)'
+    is-in-edit-mode='true'
+    show-cancel-btn='false'
+    ng-show='currentStateName == "posts"'>
   </post>
   <post
     ng-repeat='post in posts'
     post='post'
-    on-edit='editPost(postId)'
-    on-delete='deletePost(postId)'
-    on-save='savePost(post)'
-    is-in-edit-mode='selectedPostId == post.id'>
+    on-edit='onEditPostClick(postId)'
+    on-delete='onDeletePostClick(postId)'
+    on-save='onSavePostClick(post)'
+    is-in-edit-mode='idOfPostToEdit == post.id'
+    show-cancel-btn='true'
+    on-edit-comment-click='onEditCommentClick(postId, commentId)'
+    selected-comment-id='selectedCommentId'>
   </post>
 </div>

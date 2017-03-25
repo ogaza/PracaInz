@@ -11,7 +11,11 @@
       <a href="#" ng-click="onDelete({postId: post.id})">Delete</a>
     </li>
     <li class="post-comments-container" >
-      <comment ng-repeat="comment in post.comments" comment="comment" />
+      <!-- on-edit='onEditCommentClick({postId: post.id, commentId: comment.id})' -->
+      <comment ng-repeat="comment in post.comments"
+        on-edit='onEditCommentClick({postId: post.id, commentId: comment.id})'
+        is-in-edit-mode='selectedCommentId == comment.id'
+        comment="comment" />
     </li>
   </ul>
 </div>
@@ -31,7 +35,7 @@
     <div class="buttons">
       <!-- <button type="submit" class="button">Zapisz</button> -->
       <a href="#" ng-click="onSave({post: post})">Save</a>
-      <a ui-sref="posts">Cancel</a>
+      <a ui-sref="posts" ng-show='showCancelBtn'>Cancel</a>
     </div>
   </form>
 </div>

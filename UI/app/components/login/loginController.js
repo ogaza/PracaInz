@@ -16,7 +16,8 @@ angular.module('app')
               .login($scope.loginData)
               .then(
                 function (response) {
-                  $state.transitionTo('home')
+                  // $state.transitionTo('home')
+                  $state.go('posts')
                 },
                 function (error) { $scope.message = error.error_description })
         }

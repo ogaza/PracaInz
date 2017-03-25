@@ -7,7 +7,10 @@ angular.module('app')
         onEdit: '&',
         onDelete: '&',
         onSave: '&',
-        isInEditMode: '='
+        isInEditMode: '=',
+        showCancelBtn: '=',
+        onEditCommentClick: '&',
+        selectedCommentId: '='
       },
       templateUrl: '../app/shared/directives/post/postView.html',
       link: function (scope, elm, attrs) {
@@ -19,7 +22,9 @@ angular.module('app')
     return {
       restrict: 'E',
       scope: {
-        comment: '='
+        comment: '=',
+        onEdit: '&',
+        isInEditMode: '='
       },
       templateUrl: '../app/shared/directives/post/commentView.html',
       // link: function (scope, elm, attrs) {

@@ -2,16 +2,16 @@ angular.module('app')
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
       // HOME STATES AND NESTED VIEWS ========================================
-      .state('home',
-      {
-        url: '/',
-        templateUrl: '../app/components/home/homeView.html',
-        controller: 'homeController'
-      })
+      // .state('home',
+      // {
+      //   url: '/',
+      //   templateUrl: '../app/components/home/homeView.html',
+      //   controller: 'homeController'
+      // })
       // Posts view
       .state('posts',
       {
-        url: '/posts',
+        url: '/',
         // url: '/',
         templateUrl: '../app/components/posts/postsView.html',
         controller: 'postsController',
@@ -20,6 +20,9 @@ angular.module('app')
             return postsService.getAll()
           },
           selectedPostId: function () {
+            return 0
+          },
+          commentId: function ($stateParams) {
             return 0
           }
         }
@@ -33,6 +36,24 @@ angular.module('app')
         resolve: {
           selectedPostId: function ($stateParams) {
             return $stateParams.id
+          },
+          commentId: function ($stateParams) {
+            return 0
+          }
+        }
+      })
+      .state('posts.editComment',
+      {
+        url: '/{id}/comments/{commentId}',
+        // templateUrl: '../app/components/posts/editPostView.html',
+        templateUrl: '../app/components/posts/postsView.html',
+        controller: 'postsController',
+        resolve: {
+          selectedPostId: function ($stateParams) {
+            return $stateParams.id
+          },
+          commentId: function ($stateParams) {
+            return $stateParams.commentId
           }
         }
       })

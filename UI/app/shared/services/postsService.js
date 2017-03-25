@@ -13,11 +13,13 @@ angular.module('app')
         j = 1
 
         comments = [{
+          id: i * 10 + j,
           author: 'author ' + i + j,
           date: new Date(),
           content: 'content ' + i + j++
         },
         {
+          id: i * 10 + j,
           author: 'author ' + i + j,
           date: new Date(),
           content: 'content ' + i + j
