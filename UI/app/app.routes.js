@@ -12,50 +12,28 @@ angular.module('app')
       .state('posts',
       {
         url: '/',
-        // url: '/',
         templateUrl: '../app/components/posts/postsView.html',
         controller: 'postsController',
         resolve: {
           posts: function (postsService) {
             return postsService.getAll()
-          },
-          selectedPostId: function () {
-            return 0
-          },
-          commentId: function ($stateParams) {
-            return 0
           }
         }
       })
       .state('posts.edit',
       {
-        url: '/{id}/edit',
-        // templateUrl: '../app/components/posts/editPostView.html',
+        url: '/:postId/edit',
         templateUrl: '../app/components/posts/postsView.html',
-        controller: 'postsController',
-        resolve: {
-          selectedPostId: function ($stateParams) {
-            return $stateParams.id
-          },
-          commentId: function ($stateParams) {
-            return 0
-          }
-        }
+        controller: 'postsController'
+        // params: {
+        //   post: null
+        // }
       })
       .state('posts.editComment',
       {
-        url: '/{id}/comments/{commentId}',
-        // templateUrl: '../app/components/posts/editPostView.html',
+        url: '/:postId:/comments/:commentId',
         templateUrl: '../app/components/posts/postsView.html',
-        controller: 'postsController',
-        resolve: {
-          selectedPostId: function ($stateParams) {
-            return $stateParams.id
-          },
-          commentId: function ($stateParams) {
-            return $stateParams.commentId
-          }
-        }
+        controller: 'postsController'
       })
 
       // login PAGE
@@ -72,8 +50,8 @@ angular.module('app')
         controller: 'signupController'
       })
 
-    $urlRouterProvider.otherwise('home')
-    // $urlRouterProvider.otherwise('posts')
+    // $urlRouterProvider.otherwise('home')
+    $urlRouterProvider.otherwise('posts')
 
     // use the HTML5 History API
     $locationProvider.html5Mode(true)

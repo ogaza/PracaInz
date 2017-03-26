@@ -8,15 +8,25 @@
     show-cancel-btn='false'
     ng-show='currentStateName == "posts"'>
   </post>
-  <post
-    ng-repeat='post in posts'
-    post='post'
-    on-edit='onEditPostClick(postId)'
-    on-delete='onDeletePostClick(postId)'
-    on-save='onSavePostClick(post)'
-    is-in-edit-mode='idOfPostToEdit == post.id'
-    show-cancel-btn='true'
-    on-edit-comment-click='onEditCommentClick(postId, commentId)'
-    selected-comment-id='selectedCommentId'>
-  </post>
+  <!--
+    Add this empty div tag in order
+    not to have "TypeError: Cannot read property 'insertBefore' of null"
+    after updating ui-router version from 0.2.8 to 0.2.14
+    A possible solution is not to insert ng-repeat
+    in the direct child of ui-view
+    of ui-view
+  -->
+  <div>
+    <post
+      ng-repeat='post in posts'
+      post='post'
+      on-edit='onEditPostClick(postId)'
+      on-delete='onDeletePostClick(postId)'
+      on-save='onSavePostClick(post)'
+      is-in-edit-mode='idOfPostToEdit == post.id'
+      show-cancel-btn='true'
+      on-edit-comment-click='onEditCommentClick(postId, commentId)'
+      selected-comment-id='selectedCommentId'>
+    </post>
+  </div>
 </div>

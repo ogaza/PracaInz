@@ -22,6 +22,7 @@ angular.module('app')
     return {
       restrict: 'E',
       scope: {
+        postId: '=',
         comment: '=',
         onEdit: '&',
         isInEditMode: '='

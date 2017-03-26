@@ -1,15 +1,15 @@
 angular.module('app')
     .controller('postsController',
   [
-    '$scope', '$state', 'postsService', 'posts', 'selectedPostId', 'commentId',
-    function ($scope, $state, postsService, posts, selectedPostId, commentId) {
+    '$scope', '$state', 'postsService', 'posts',
+    function ($scope, $state, postsService, posts) {
       $scope.currentStateName = $state.current.name
 
-      $scope.selectedPostId = selectedPostId;
+      $scope.selectedPostId = $state.params.postId;
 
-      $scope.idOfPostToEdit = commentId ? 0 : selectedPostId;
+      $scope.selectedCommentId = $state.params.commentId
 
-      $scope.selectedCommentId = commentId
+      $scope.idOfPostToEdit = $scope.selectedCommentId ? 0 : $scope.selectedPostId;
 
       $scope.newPost = {}
 
@@ -26,7 +26,7 @@ angular.module('app')
 
         var idAsInt = parseInt(id)
         // args: state, stateParams
-        $state.transitionTo('posts.edit', {id: idAsInt})
+        $state.transitionTo('posts.edit', {postId: idAsInt})
       }
 
       $scope.onDeletePostClick = function (id) {

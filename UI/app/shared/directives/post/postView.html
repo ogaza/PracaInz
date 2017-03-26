@@ -7,15 +7,23 @@
       {{post.dateAdded}}
     </li>
     <li class="post-links">
-      <a href="#" ng-click="onEdit({postId: post.id})">Edit</a>
-      <a href="#" ng-click="onDelete({postId: post.id})">Delete</a>
+      <a href="#"
+        ng-click="onEdit({postId: post.id})">
+        Edit
+      </a>
+      <!-- <a ui-sref="posts.edit({postId: post.id, post: post})">Edit</a> -->
+      <!-- <a href="#" ng-click="onDelete({postId: post.id})">Delete</a> -->
     </li>
-    <li class="post-comments-container" >
+    <li class="post-comments-container">
       <!-- on-edit='onEditCommentClick({postId: post.id, commentId: comment.id})' -->
-      <comment ng-repeat="comment in post.comments"
-        on-edit='onEditCommentClick({postId: post.id, commentId: comment.id})'
+      <!-- on-edit='onEditCommentClick({postId: post.id, commentId: comment.id})' -->
+      <comment
+        ng-repeat="comment in post.comments"
         is-in-edit-mode='selectedCommentId == comment.id'
-        comment="comment" />
+        comment="comment"
+        post-id="post.id"
+        on-edit='onEditCommentClick({postId: post.id, commentId: comment.id})'>
+      </comment>
     </li>
   </ul>
 </div>
@@ -34,8 +42,11 @@
     </div>
     <div class="buttons">
       <!-- <button type="submit" class="button">Zapisz</button> -->
-      <a href="#" ng-click="onSave({post: post})">Save</a>
-      <a ui-sref="posts" ng-show='showCancelBtn'>Cancel</a>
+      <a href="#"
+        ng-click="onSave({post: post})">
+        Save
+      </a>
+      <!-- <a ui-sref="posts" ng-show='showCancelBtn'>Cancel</a> -->
     </div>
   </form>
 </div>
