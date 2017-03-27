@@ -37,15 +37,21 @@ angular.module('app')
         $state.transitionTo('posts', null, {reload: true})
       }
 
-      $scope.onEditCommentClick = function (id, commentId) {
+      $scope.onEditCommentClick = function (postId, commentId) {
         console.log('about to transition to edit comment ' + commentId)
 
-        var idAsInt = parseInt(id)
+        var postIdAsInt = parseInt(postId)
         var commentIdAsInt = parseInt(commentId)
         // args: state, stateParams
         $state.transitionTo(
           'posts.editComment',
-          {id: idAsInt, commentId: commentIdAsInt})
+          {postId: postIdAsInt, commentId: commentIdAsInt})
+      }
+
+      $scope.onSaveCommentClick = function (postId, comment) {
+        postsService.saveComment(postId, comment)
+        // args: state, stateParams, options
+        $state.transitionTo('posts', null, {reload: true})
       }
     }
   ])

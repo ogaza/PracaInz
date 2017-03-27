@@ -22,7 +22,16 @@
         is-in-edit-mode='selectedCommentId == comment.id'
         comment="comment"
         post-id="post.id"
-        on-edit='onEditCommentClick({postId: post.id, commentId: comment.id})'>
+        on-edit='onEditCommentClick({postId: post.id, commentId: comment.id})'
+        on-save='onSaveCommentClick({postId: post.id, comment: comment})'
+        show-cancel-btn='true'>
+      </comment>
+
+      <comment
+        is-in-edit-mode='true'
+        on-save='onSaveCommentClick({postId: post.id, comment: comment})'
+        comment='{}'
+        show-cancel-btn='false'>
       </comment>
     </li>
   </ul>

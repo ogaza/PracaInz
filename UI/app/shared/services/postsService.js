@@ -6,20 +6,21 @@ angular.module('app')
       var comments
       var j
 
-      var lastId = 0
+      var lastPostId = 0
+      var lastCommentId = 0
 
       for (var i = 1; i <= 5; i++) {
 
         j = 1
 
         comments = [{
-          id: i * 10 + j,
+          id: ++lastCommentId,
           author: 'author ' + i + j,
           date: new Date(),
           content: 'content ' + i + j++
         },
         {
-          id: i * 10 + j,
+          id: ++lastCommentId,
           author: 'author ' + i + j,
           date: new Date(),
           content: 'content ' + i + j
@@ -35,7 +36,7 @@ angular.module('app')
 
         posts.push(post)
 
-        lastId = i
+        lastPostId = i
       }
 
       return {
@@ -49,11 +50,11 @@ angular.module('app')
             return elem.id === idAsInt
           })
 
-          return { id: post.id, text: post.text}
+          return { "id": post.id, "text": post.text, "comments": post.comments }
         },
         save: function (post) {
           if (!post.id) {
-            post.id = ++lastId
+            post.id = ++lastPostId
             post.dateAdded = new Date()
             posts.push(post)
             return
@@ -77,6 +78,24 @@ angular.module('app')
           if (idx < 0) return
 
           posts.splice(idx, 1)
+        },
+
+        saveComment: function (postId, comment) {
+          var post = this.get(postId)
+
+          if (!comment.id) {
+            comment.id = ++lastCommentId
+            post.comments.push(comment)
+            return
+          }
+
+          var idAsInt = parseInt(comment.id)
+
+          var commentToEdit = post.comments.find(function (elem) {
+            return elem.id === idAsInt
+          })
+
+          commentToEdit.content = comment.content
         }
       }
     })

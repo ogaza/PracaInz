@@ -10,12 +10,10 @@ angular.module('app')
         isInEditMode: '=',
         showCancelBtn: '=',
         onEditCommentClick: '&',
+        onSaveCommentClick: '&',
         selectedCommentId: '='
       },
-      templateUrl: '../app/shared/directives/post/postView.html',
-      link: function (scope, elm, attrs) {
-        // scope.selectedPost = {id: 1}
-      }
+      templateUrl: '../app/shared/directives/post/postView.html'
     }
   })
   .directive('comment', function () {
@@ -25,10 +23,10 @@ angular.module('app')
         postId: '=',
         comment: '=',
         onEdit: '&',
+        onSave: '&',
+        showCancelBtn: '=',
         isInEditMode: '='
       },
-      templateUrl: '../app/shared/directives/post/commentView.html',
-      // link: function (scope, elm, attrs) {
-      // }
+      templateUrl: '../app/shared/directives/post/commentView.html'
     }
   })

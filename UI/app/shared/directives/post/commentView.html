@@ -13,32 +13,22 @@
     <a href="/?controller=main&action=deleteComment&id={$comment->id}">Usuń</a>
   </li>
   {/if} -->
-  <li class="new-comment-container"
-    ng-show="isInEditMode">
-    <span class="new-comment-text-container">
-      <textarea rows="1">{{comment.content}}</textarea>
-    </span>
-    <span class="new-comment-link-container">
-      <!-- <a href="#" ng-click="onAddComment({postId: post.id})">Comment</a> -->
-    </span>
-  </li>
-
   <li ng-hide="isInEditMode">
     <!-- <a ng-click="isInEditMode=true">Edit</a> -->
     <a ng-click="onEdit({postId: post.id, commentId: comment.id})">Edit</a>
     <!-- <a href="#" ui-sref="posts.editComment({postId: postId, commentId: comment.id})">
-      Edit
-    </a> -->
+    Edit
+  </a> -->
   </li>
-</ul>
 
-<!-- <ul class="new-comment-container">
-  <li >
+  <li class="new-comment-container"
+    ng-show="isInEditMode">
     <span class="new-comment-text-container">
-      <textarea rows="1"></textarea>
+      <textarea rows="1" ng-model="comment.content"></textarea>
     </span>
     <span class="new-comment-link-container">
-      <a href="#" ng-click="onAddComment({postId: post.id})">Comment</a>
+      <a href="#" ng-click="onSave({postId: post.id, comment: comment})">Comment</a>
+      <a href="#" ui-sref="posts" ng-show="showCancelBtn">Cancel</a>
     </span>
   </li>
-</ul> -->
+</ul>

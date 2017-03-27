@@ -31,7 +31,7 @@ angular.module('app')
       })
       .state('posts.editComment',
       {
-        url: '/:postId:/comments/:commentId',
+        url: '/:postId/comments/:commentId',
         templateUrl: '../app/components/posts/postsView.html',
         controller: 'postsController'
       })
