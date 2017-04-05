@@ -53,5 +53,17 @@ angular.module('app')
         // args: state, stateParams, options
         $state.transitionTo('posts', null, {reload: true})
       }
+
+      $scope.onDeleteCommentClick = function (postId, commentId) {
+        console.log('about to delete comment ' + commentId)
+
+        var postIdAsInt = parseInt(postId)
+        var commentIdAsInt = parseInt(commentId)
+
+        postsService.deleteComment(postIdAsInt, commentIdAsInt)
+
+        // args: state, stateParams
+        $state.transitionTo('posts', null, {reload: true})
+      }
     }
   ])

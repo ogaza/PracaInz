@@ -11,6 +11,10 @@
         ng-click="onEdit({postId: post.id})">
         Edit
       </a>
+      <a href="#"
+        ng-click="onDelete({postId: post.id})">
+        Delete
+      </a>
       <!-- <a ui-sref="posts.edit({postId: post.id, post: post})">Edit</a> -->
       <!-- <a href="#" ng-click="onDelete({postId: post.id})">Delete</a> -->
     </li>
@@ -24,6 +28,7 @@
         post-id="post.id"
         on-edit='onEditCommentClick({postId: post.id, commentId: comment.id})'
         on-save='onSaveCommentClick({postId: post.id, comment: comment})'
+        on-delete='onDeleteCommentClick({postId: post.id, commentId: comment.id})'
         show-cancel-btn='true'>
       </comment>
 

@@ -79,7 +79,6 @@ angular.module('app')
 
           posts.splice(idx, 1)
         },
-
         saveComment: function (postId, comment) {
           var post = this.get(postId)
 
@@ -96,6 +95,24 @@ angular.module('app')
           })
 
           commentToEdit.content = comment.content
+        },
+        deleteComment: function (postId, commentId) {
+          var post = this.get(postId)
+
+          if (!post || !post.comments) {
+            console.log('could not remove a comment')
+            return
+          }
+
+          var commentIdAsInt = parseInt(commentId)
+
+          var idx = post.comments.findIndex(function (elem) {
+            return elem.id === commentIdAsInt
+          })
+
+          if (idx < 0) return
+
+          post.comments.splice(idx, 1)
         }
       }
     })

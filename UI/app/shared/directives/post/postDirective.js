@@ -11,6 +11,7 @@ angular.module('app')
         showCancelBtn: '=',
         onEditCommentClick: '&',
         onSaveCommentClick: '&',
+        onDeleteCommentClick: '&',
         selectedCommentId: '='
       },
       templateUrl: '../app/shared/directives/post/postView.html'
@@ -24,6 +25,7 @@ angular.module('app')
         comment: '=',
         onEdit: '&',
         onSave: '&',
+        onDelete: '&',
         showCancelBtn: '=',
         isInEditMode: '='
       },
