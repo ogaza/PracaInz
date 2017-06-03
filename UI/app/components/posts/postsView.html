@@ -1,6 +1,8 @@
 <div ui-view>
   <h2>{{currentStateName}} {{selectedPostId}} {{selectedCommentId}}</h2>
   <!-- <a ui-sref='posts.add'>Add</a> -->
+  <modal is-visible='modalVisible' post='newPost'></modal>
+<!--
   <post
     post='newPost'
     on-save='onSavePostClick(post)'
@@ -8,6 +10,7 @@
     show-cancel-btn='false'
     ng-show='currentStateName == "posts"'>
   </post>
+-->
   <!--
     Add this empty div tag in order
     not to have "TypeError: Cannot read property 'insertBefore' of null"
@@ -16,6 +19,7 @@
     in the direct child of ui-view
     of ui-view
   -->
+  <a ng-click='onCreatePostClick()'>Add</a>
   <div>
     <post
       ng-repeat='post in posts'

@@ -13,7 +13,19 @@ angular.module('app')
 
       $scope.newPost = {}
 
+      // modal tests
+
+      $scope.modalVisible = ($scope.currentStateName == 'posts.create')
+
+      // end of modal tests
+
       $scope.posts = posts
+
+      $scope.onCreatePostClick = function () {
+        // postsService.save(post)
+        // args: state, stateParams, options
+        $state.transitionTo('posts.create', null, {reload: true})
+      }
 
       $scope.onSavePostClick = function (post) {
         postsService.save(post)

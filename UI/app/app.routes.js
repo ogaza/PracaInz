@@ -20,6 +20,15 @@ angular.module('app')
           }
         }
       })
+      .state('posts.create',
+      {
+        url: '/createPost',
+        templateUrl: '../app/components/posts/postsView.html',
+        controller: 'postsController'
+        // params: {
+        //   post: null
+        // }
+      })
       .state('posts.edit',
       {
         url: '/:postId/edit',
