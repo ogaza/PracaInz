@@ -1,5 +1,5 @@
 /* The Modal (background) */
-.modal {
+.cust-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -13,20 +13,34 @@
 }
 
 /* Modal Header */
-.modal-header {
+.cust-modal-header {
+    padding: 5px;
+    background-color: rgb(66, 95, 156);
+    color: white;
+}
+
+/* Modal Body */
+.cust-modal-body {
+  padding: 5px;
+  /*padding: 2px 16px;*/
+}
+
+/* Modal Footer */
+.cust-modal-footer {
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
 }
 
-/* Modal Body */
-.modal-body {padding: 2px 16px;}
-
-/* Modal Footer */
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+/* Modal Content */
+.cust-modal-content {
+  border-radius: 5px;
+  max-height: calc(100% - 10px);
+  background-color: #fefefe;
+  border: 1px solid #888;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  overflow: auto;
+  width: 80%;
 }
 
 .position-cetered {
@@ -36,18 +50,8 @@
   transform: translate(-50%, -50%);
 }
 
-/* Modal Content */
-.modal-content {
-  max-height: calc(100% - 10px);
-  background-color: #fefefe;
-  border: 1px solid #888;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  overflow: auto;
-  width: 80%;
-}
-
 /* Add Animation */
-@-webkit-keyframes animatetop {
+/*@-webkit-keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
 }
@@ -55,4 +59,4 @@
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
-}
+}*/
