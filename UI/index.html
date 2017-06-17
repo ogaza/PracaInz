@@ -36,8 +36,10 @@
   <!-- services -->
   <script src="app/shared/services/postsService.js"></script>
   <!-- directives -->
+  <script src="app/shared/directives/header/headerDirective.js"></script>
   <script src="app/shared/directives/navbar/navbarDirective.js"></script>
   <script src="app/shared/directives/post/postDirective.js"></script>
+  <script src="app/shared/directives/footer/footerDirective.js"></script>
   <!-- controllers -->
   <script src="app/components/posts/postsController.js"></script>
   <script src="app/components/home/homeController.js"></script>
@@ -53,9 +55,7 @@
 <body ng-app="app">
   <div class="page-wrap">
     <div class="app-elem-wrap">
-      <div class="app-header app-common">
-        <h1>Go social app!</h1>
-      </div>
+      <app-header></app-header>
     </div>
 
     <navbar></navbar>
@@ -65,9 +65,7 @@
     </div>
   </div>
   <div class="app-elem-wrap">
-    <div class="app-footer app-common">
-      2017
-    </div>
+    <app-footer></app-footer>
   </div>
 </body>
 </html>

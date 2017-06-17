@@ -11,11 +11,21 @@ angular.module('app')
 
       $scope.idOfPostToEdit = $scope.selectedCommentId ? 0 : $scope.selectedPostId;
 
-      $scope.newPost = {}
+      $scope.selectedPost = {}
+
+      if($scope.idOfPostToEdit) {
+        var postToEdit = postsService.get($scope.idOfPostToEdit)
+
+        $scope.selectedPost.id = postToEdit.id
+        $scope.selectedPost.text = postToEdit.text
+      }
 
       // modal tests
 
-      $scope.modalVisible = ($scope.currentStateName == 'posts.create')
+      $scope.modalVisible = (
+        $scope.currentStateName == 'posts.create' ||
+        $scope.currentStateName == 'posts.edit'
+      )
 
       // end of modal tests
 

@@ -1,7 +1,7 @@
 <div ui-view>
   <h2>{{currentStateName}} {{selectedPostId}} {{selectedCommentId}}</h2>
   <!-- <a ui-sref='posts.add'>Add</a> -->
-  <modal is-visible='modalVisible' post='newPost'></modal>
+  <modal is-visible='modalVisible' post='selectedPost'></modal>
 <!--
   <post
     post='newPost'
@@ -21,13 +21,16 @@
   -->
   <a ng-click='onCreatePostClick()'>Add</a>
   <div>
+    <!--
+      is-in-edit-mode='idOfPostToEdit == post.id'
+    -->
     <post
       ng-repeat='post in posts'
       post='post'
       on-edit='onEditPostClick(postId)'
       on-delete='onDeletePostClick(postId)'
       on-save='onSavePostClick(post)'
-      is-in-edit-mode='idOfPostToEdit == post.id'
+
       show-cancel-btn='true'
       on-edit-comment-click='onEditCommentClick(postId, commentId)'
       on-save-comment-click='onSaveCommentClick(postId, comment)'
