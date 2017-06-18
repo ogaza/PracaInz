@@ -11,6 +11,12 @@
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+.cust-modal-content-wrap {
+  margin: 40px auto;
+  max-width: 800px;
+  padding: 0 5px;
+}
+
 /* Modal Content */
 .cust-modal-content {
   border-radius: 5px;
@@ -18,11 +24,8 @@
   background-color: #fefefe;
   border: 1px solid #888;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  margin: 40px auto;
   overflow: hidden;
-  width: 80%;
 }
-
 
 /* Modal Header */
 .cust-modal-header {
@@ -62,12 +65,12 @@
     color: rgb(150, 150, 150);
 }
 
-.position-cetered {
-  /*position: fixed;
+/*.position-cetered {
+  position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);*/
-}
+  transform: translate(-50%, -50%);
+}*/
 
 /* Add Animation */
 /*@-webkit-keyframes animatetop {

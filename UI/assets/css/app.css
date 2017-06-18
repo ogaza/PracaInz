@@ -105,27 +105,6 @@ h2{
 }
 
 /* *********************************************** */
-/* App Header */
-/* *********************************************** */
-
-.app-header{
-    background-color: rgb(66, 95, 156);
-    color: white;
-}
-
-.app-header a{
-    color: white;
-}
-
-.app-header a:hover{
-    color: rgb(200, 200, 200);
-}
-
-.app-header .user-name{
-    display: inline;
-}
-
-/* *********************************************** */
 /* App Nav */
 /* *********************************************** */
 
@@ -263,6 +242,7 @@ h2{
   /*font-size: 0.75em;*/
   padding: 5px 0;
   resize: none;
+  width: 100%;
 }
 
 .new-comment-container a {
@@ -282,56 +262,4 @@ h2{
   display: inline-block;
   margin-left: -1px;
   width: 80%
-}
-
-/* *********************************************** */
-/* Login view */
-/* Sign up view*/
-/* *********************************************** */
-
-.loginForm-container {
-  width: 50%;
-}
-
-.signupForm-container{
-  width: 75%;
-}
-
-.loginForm-container, .signupForm-container {
-  margin: 10px auto;
-  padding: 10px 15px;
-  /*width: 50%;*/
-}
-
-.loginForm-container .buttons,
-.signupForm-container .buttons{
-  font-size: 1em;
-  margin: 10px 0 0;
-}
-
-.loginForm-container form,
-.signupForm-container form {
-  border: 1px solid #CCC;
-  border-radius: 0.5em;
-  padding: 10px 15px;
-}
-
-.loginForm-container input,
-.signupForm-container input{
-    border: 1px solid #999;
-    display: block;
-    font-size: 1em;
-    margin: 10px 0;
-    padding: 2px;
-    width: 100%;
-}
-
-.loginForm-container input:focus,
-.signupForm-container input:focus {
-    border-color: #000;
-}
-
-.loginForm-register {
-  margin: 20px 0;
-  font-size: 0.8em;
 }

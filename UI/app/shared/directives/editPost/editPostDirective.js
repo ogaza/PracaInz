@@ -1,15 +1,15 @@
 angular.module('app')
-  .directive('modal', function () {
+  .directive('editPost', function () {
     return {
       restrict: 'E',
       scope: {
         post: '=',
         // onEdit: '&',
         // onDelete: '&',
-        // onSave: '&',
+        onSave: '&',
         isVisible: '='
         // onEditCommentClick: '&',
       },
-      templateUrl: '../app/components/modal/modal.html'
+      templateUrl: '../app/shared/directives/editPost/editPost.html'
     }
   })

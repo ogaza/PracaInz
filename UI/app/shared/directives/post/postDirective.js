@@ -6,8 +6,6 @@ angular.module('app')
         post: '=',
         onEdit: '&',
         onDelete: '&',
-        onSave: '&',
-        isInEditMode: '=',
         showCancelBtn: '=',
         onEditCommentClick: '&',
         onSaveCommentClick: '&',

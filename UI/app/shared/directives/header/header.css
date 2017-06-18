@@ -1,0 +1,20 @@
+/* *********************************************** */
+/* App Header */
+/* *********************************************** */
+
+.app-header{
+    background-color: rgb(66, 95, 156);
+    color: white;
+}
+
+.app-header a{
+    color: white;
+}
+
+.app-header a:hover{
+    color: rgb(200, 200, 200);
+}
+
+.app-header .user-name{
+    display: inline;
+}
