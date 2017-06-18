@@ -178,32 +178,8 @@ h2{
     padding: 10px 15px;*/
 }
 
-.add-post-container .buttons {
-    font-size: 1em;
-    margin: 5px 0 0;
-}
-
-.add-post-container input, textarea {
-    border: 1px solid #999;
-    font-size: 1em;
-    padding: 2px;
-    width: 100%;
-}
-
-.add-post-container input,
-.add-post-container textarea{
-    display: block;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    margin: 5px 0;
-}
-
 .add-post-container input:focus, textarea:focus {
     border-color: #000;
-}
-
-.add-post-container textarea {
-    /*margin: 5px 0;*/
-    resize: vertical;
 }
 
 /* *********************************************** */
@@ -223,19 +199,19 @@ h2{
     text-align: justify;
 }
 
-.post-dateAdded{
+.post-dateAdded {
     color: rgb(130, 130, 130);
     font-size: 0.6em;
     padding: 0 10px;
 }
 
-.post-links{
+.post-links {
     font-size: 0.75em;
     padding: 5px 10px;
     /*text-align: center;*/
 }
 
-.post-links a{
+.post-links a {
     color: rgb(60, 60, 60);
     margin-right: 10px;
 }

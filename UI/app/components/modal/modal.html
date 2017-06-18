@@ -8,12 +8,31 @@
     </div>
 
     <div class="cust-modal-body">
-      <post post='post' is-in-edit-mode='true'>
+      <!-- <post post='post' is-in-edit-mode='true'> -->
+      <!-- <div class="add-post-container"> -->
+        <!-- <form ng-submit="savePost()"> -->
+        <form>
+          <!-- <div> -->
+            <!--<input type="text" id="title" name="title" placeholder="tytuł" />-->
+            <textarea id="content"
+              rows="4"
+              name="content"
+              placeholder="treść..."
+              ng-model="post.text">
+            </textarea>
+          <!-- </div> -->
+        </form>
+      <!-- </div> -->
     </div>
-    <!--
+
     <div class="cust-modal-footer">
-      <h3>Modal Footer</h3>
+      <a href="#"
+        ng-click="onSave({post: post})">
+        Save
+      </a>
+        <!-- <button type="submit" class="button">Zapisz</button> -->
+        <!-- <a ui-sref="posts" ng-show='showCancelBtn'>Cancel</a> -->
     </div>
-  -->
+
   </div>
 </div>
