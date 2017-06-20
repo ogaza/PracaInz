@@ -60,7 +60,7 @@ angular.module('app')
       })
 
     // $urlRouterProvider.otherwise('home')
-    $urlRouterProvider.otherwise('posts')
+    $urlRouterProvider.otherwise('profile')
 
     // use the HTML5 History API
     $locationProvider.html5Mode(true)
