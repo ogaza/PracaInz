@@ -1,6 +1,10 @@
 <div>
-  <form action="/action_page.php">
-    <input type="file" name="pic" accept="image/*">
-    <input type="submit">
+  <form role="form" name="profileForm">
+    <input type="file" name="pic" accept="image/*" ng-model="picture">
+    <div class="buttons">
+      <a ng-click="savePicture()" href="#">Save</a>
+    </div>
+    <!-- <img ng-src="http://localhost:50824/api/account/photo/1" width="100px" height="100px"/> -->
+    <img ng-src="{{imgSrc}}" width="100px" height="100px"/>
   </form>
 </div>

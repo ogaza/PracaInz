@@ -250,3 +250,6 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+Pictures
+/DataBase/PracaInz.mdf
+/DataBase/PracaInz_log.ldf

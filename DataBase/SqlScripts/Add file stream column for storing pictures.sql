@@ -1,0 +1,13 @@
+use PracaInz;
+GO
+
+ALTER TABLE UserProfile
+
+ADD UI UNIQUEIDENTIFIER ROWGUIDCOL NOT NULL UNIQUE DEFAULT newid()
+GO
+
+ALTER TABLE UserProfile
+
+ADD Picture varbinary(max) FILESTREAM NULL
+
+GO

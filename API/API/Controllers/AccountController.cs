@@ -1,4 +1,12 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Http;
 using API.Models;
 using API.Repositories;
 
@@ -8,10 +16,12 @@ namespace API.Controllers
     public class AccountController : ApiController
     {
         private readonly AuthRepository _repo;
+        private readonly PictureRepository _pictureRepository;
 
         public AccountController()
         {
             _repo = new AuthRepository();
+            _pictureRepository = new PictureRepository();
         }
 
         [AllowAnonymous]
@@ -35,6 +45,89 @@ namespace API.Controllers
             //}
 
             return Ok();
+        }
+
+        [AllowAnonymous]
+        [Route("Photo")]
+        [HttpPost]
+        public async Task<IHttpActionResult> Photo()
+        {
+            // const string path = "C:/PracaInz/UI/assets/graphics/users/";
+            // const string path = @"\\Olaf-komputer\mssqlserver\Pictures\";
+
+            if (!Request.Content.IsMimeMultipartContent())
+                throw new HttpResponseException(
+                    Request.CreateResponse(HttpStatusCode.NotAcceptable,
+                        "This request is not properly formatted"));
+
+            var provider = new MultipartMemoryStreamProvider();
+
+            // var httpRequest = HttpContext.Current.Request;
+
+            // var x = httpRequest.Files;
+
+            await Request.Content.ReadAsMultipartAsync(provider);
+
+            var userId = 1;
+
+            // Contents has as many files as the number of uploaded files by the client
+            foreach (HttpContent content in provider.Contents)
+            {
+                //now read individual part into STREAM
+                using (Stream stream = await content.ReadAsStreamAsync())
+                {                    
+                    if (stream.Length == 0) continue;
+
+                    // Guid guid = Guid.NewGuid();
+
+                    using (var rdr = new BinaryReader(stream))
+                    {
+                        byte[] fileData = rdr.ReadBytes((int)stream.Length);
+
+                        _pictureRepository.Save(fileData, userId);
+                    }
+                    
+                    //rdr.Close();
+
+                    //using (var destinationStream =
+                    //    new MemoryStream())
+                    //{
+                    //    await stream.CopyToAsync(destinationStream);
+                    //}
+
+                    //using (FileStream destinationStream =
+                    //    File.Create(path + guid + ".jpg"))
+                    //{
+                    //    await stream.CopyToAsync(destinationStream);
+                    //}
+                }
+            }
+
+            return Ok();
+        }
+
+        [AllowAnonymous]
+        [Route("Photo/{id}")]
+        [HttpGet]
+        public HttpResponseMessage GetPhoto(int id)
+        {
+            byte[] data = _pictureRepository.Get(id);
+
+            var result = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new ByteArrayContent(data)
+            };
+
+            result.Content.Headers.ContentDisposition =
+                new ContentDispositionHeaderValue("attachment")
+                {
+                    FileName = "profile.jpg"
+                };
+
+            result.Content.Headers.ContentType =
+                new MediaTypeHeaderValue("application/octet-stream");
+
+            return result;
         }
 
         //protected override void Dispose(bool disposing)
