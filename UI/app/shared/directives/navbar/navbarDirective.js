@@ -6,7 +6,7 @@ angular.module('app')
       $scope.logout = function(){
         authService.logOut()
 
-        $state.transitionTo('home')
+        $state.transitionTo('login')
       }
     }]
 

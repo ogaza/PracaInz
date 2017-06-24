@@ -2,16 +2,16 @@ angular.module('app')
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
       // HOME STATES AND NESTED VIEWS ========================================
-      // .state('home',
-      // {
-      //   url: '/',
-      //   templateUrl: '../app/components/home/homeView.html',
-      //   controller: 'homeController'
-      // })
+      .state('home',
+      {
+        url: '/home',
+        templateUrl: '../app/components/home/homeView.html',
+        controller: 'homeController'
+      })
       // Posts view
       .state('posts',
       {
-        url: '/',
+        url: '/posts',
         templateUrl: '../app/components/posts/postsView.html',
         controller: 'postsController',
         resolve: {

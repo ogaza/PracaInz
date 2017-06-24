@@ -12,9 +12,11 @@ angular.module('app')
       //   // args: state, stateParams, options
       //   $state.transitionTo('posts.create', null, {reload: true})
       // }
-      $scope.picture = null;
 
-      $scope.imgSrc = 'http://localhost:50824/api/account/photo/1?time=' + new Date();
+      var serviceBase = 'http://localhost:10001/'
+      // var serviceBase = 'http://localhost:50824/'
+
+      $scope.imgSrc = serviceBase + 'api/account/photo/1?time=' + new Date();
 
       $scope.getUrl = function () {
         return $scope.imgSrc;
@@ -25,9 +27,6 @@ angular.module('app')
         console.log('sending a picture;')
 
         var file = $scope.profileForm.pic.$$attr.$$element[0].files[0]
-
-        // var serviceBase = 'http://localhost:10001/'
-        var serviceBase = 'http://localhost:50824/'
 
         // var data = 'grant_type=password&username='
         //            + loginData.userName + '&password=' + loginData.password
@@ -50,21 +49,6 @@ angular.module('app')
           function(){
             console.log('sending a picture finished with ERROR')
           })
-
-        // $http.post(serviceBase + 'api/account/photo', data, {
-        //   headers: {
-        //     'Content-Type': 'application/x-www-form-urlencoded'
-        //   }
-        // }).then(
-        //     function (response) {
-        //
-        //       // deferred.resolve(response)
-        //     },
-        //     function (err) {
-        //
-        //       // deferred.reject(err)
-        //     })
-
       }
 
     }
