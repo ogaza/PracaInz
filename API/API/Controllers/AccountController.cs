@@ -92,9 +92,22 @@ namespace API.Controllers
         {
             byte[] data = _pictureRepository.Get(id);
 
+            //var result = new HttpResponseMessage(HttpStatusCode.OK)
+            //{
+            //    Content = new ByteArrayContent(data)
+            //}; 
+
+            /*
+             * Alternative solution using StreamContent
+            */
+
+            var stream = new MemoryStream(data);
+
+            // stream.Position = 0;
+
             var result = new HttpResponseMessage(HttpStatusCode.OK)
             {
-                Content = new ByteArrayContent(data)
+                Content = new StreamContent(stream)
             };
 
             result.Content.Headers.ContentDisposition =
@@ -105,6 +118,10 @@ namespace API.Controllers
 
             result.Content.Headers.ContentType =
                 new MediaTypeHeaderValue("application/octet-stream");
+
+            // result.Content.Headers.ContentLength = stream.Length;
+
+            result.Headers.CacheControl = new CacheControlHeaderValue {NoCache = true};
 
             return result;
         }

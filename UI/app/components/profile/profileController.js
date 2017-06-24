@@ -16,7 +16,9 @@ angular.module('app')
       var serviceBase = 'http://localhost:10001/'
       // var serviceBase = 'http://localhost:50824/'
 
-      $scope.imgSrc = serviceBase + 'api/account/photo/1?time=' + new Date();
+      $scope.imgSrc = serviceBase
+        + 'api/account/photo/1'
+        + '?time=' + new Date();
 
       $scope.getUrl = function () {
         return $scope.imgSrc;
