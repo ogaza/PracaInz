@@ -52,20 +52,13 @@ namespace API.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> Photo()
         {
-            // const string path = "C:/PracaInz/UI/assets/graphics/users/";
-            // const string path = @"\\Olaf-komputer\mssqlserver\Pictures\";
-
             if (!Request.Content.IsMimeMultipartContent())
                 throw new HttpResponseException(
                     Request.CreateResponse(HttpStatusCode.NotAcceptable,
                         "This request is not properly formatted"));
 
             var provider = new MultipartMemoryStreamProvider();
-
-            // var httpRequest = HttpContext.Current.Request;
-
-            // var x = httpRequest.Files;
-
+           
             await Request.Content.ReadAsMultipartAsync(provider);
 
             var userId = 1;
@@ -85,21 +78,7 @@ namespace API.Controllers
                         byte[] fileData = rdr.ReadBytes((int)stream.Length);
 
                         _pictureRepository.Save(fileData, userId);
-                    }
-                    
-                    //rdr.Close();
-
-                    //using (var destinationStream =
-                    //    new MemoryStream())
-                    //{
-                    //    await stream.CopyToAsync(destinationStream);
-                    //}
-
-                    //using (FileStream destinationStream =
-                    //    File.Create(path + guid + ".jpg"))
-                    //{
-                    //    await stream.CopyToAsync(destinationStream);
-                    //}
+                    }                   
                 }
             }
 

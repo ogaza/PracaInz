@@ -12,7 +12,7 @@ namespace API.Repositories
     public class PictureRepository
     {
         private readonly string _connectionString =
-            ConfigurationManager.ConnectionStrings["PracaInzDb"].ConnectionString;
+            ConfigurationManager.ConnectionStrings["PracaInzDbForSqlFileStream"].ConnectionString;
 
         private CommandType CommandType
         {
@@ -146,8 +146,6 @@ namespace API.Repositories
             {
                 connection.Open();
 
-                //using (SqlTransaction transaction = connection.BeginTransaction())
-                //{
                 SqlTransaction transaction = connection.BeginTransaction();
 
                 command.Transaction = transaction;
