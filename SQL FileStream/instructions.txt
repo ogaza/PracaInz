@@ -1,0 +1,133 @@
+Wlaczanie uslugi:
+
+1. Sql Server Configuration Manager
+
+START -> Sql Server Configuration Manager
+
+SQL Server Services -> wybierz us³uge silnika servera sql
+
+Properties -> FILESTREAM 
+
+Tutaj w³aczamy mozliwosc przechowywania danych jako plikow
+plus mozliwy dostep do tych danych przy pomocy Eksploratora Winows 
+oraz ewentulanie jako folder sieciowy
+
+
+2. Microsoft SQL Server Management Studio 
+
+a. 
+
+logujemy sie do servera sql
+
+Object Explorer -> ppm na ikonce servera -> properties 
+-> Advanced -> FILESTREAM
+
+wybieramy czy dostep tylko przez komendy transakcyjne, czy takze przez 
+eksploratora
+
+SQL : 
+
+-- 0 = Diabled
+-- 1 = Transact-SQL access enabled
+-- 2 = Full access enabled
+
+EXEC sys.sp_configure N'filestream access level', N'2' 
+GO
+RECONFIGURE WITH OVERRIDE
+GO
+
+b.
+
+ppm na wybranej bazie danych -> properties -> Filegroups 
+
+tutaj musimy utworzyc FILESTREAM i nadac mu nazwe np Pictures oraz
+zaznaczyc czy jest domyslny (jesli pierwszy to na pewno zaznaczamy)
+
+Przyk³adowy skrypt:
+
+USE [master]
+GO
+ALTER DATABASE [PracaInz] ADD FILEGROUP [Pictures] CONTAINS FILESTREAM 
+GO
+USE [PracaInz]
+GO
+IF NOT EXISTS (SELECT name FROM sys.filegroups WHERE is_default=1 AND name = N'Pictures') 
+ALTER DATABASE [PracaInz] MODIFY FILEGROUP [Pictures] DEFAULT
+GO
+
+c.
+
+Musimy utworzys plik dla wybranej bazy danych powiazany z FILESTREAM'em 
+
+Object Explorer -> ppm na ikonce bazy danych -> properties
+
+-> Files 
+
+-> Add -> 
+	File Type := FILESTREAM, 
+	Logical Name = (np.) Pictures, 
+	Path = sciezka do kataalogi na dysku
+
+USE [master]
+GO
+ALTER DATABASE 
+	[PracaInz] 
+ADD FILE 
+( 
+	NAME = N'Pictures', 
+	FILENAME = N'C:\PracaInz\DataBase\Pictures' 
+) 
+TO FILEGROUP 
+	[Pictures]
+GO
+
+d. 
+
+Teraz juz mo¿emy utworzyc tabelê plikow¹ 
+
+USE [PracaInz]
+GO
+
+
+-- SET ANSI_NULLS ON
+-- GO
+
+-- SET QUOTED_IDENTIFIER ON
+-- GO
+
+-- SET ARITHABORT ON
+-- GO
+
+-- SET ANSI_PADDING ON
+-- GO
+
+CREATE TABLE [dbo].[Pictures] AS FILETABLE ON [PRIMARY] FILESTREAM_ON [Pictures]
+WITH
+(
+FILETABLE_DIRECTORY = N'Pictures', FILETABLE_COLLATE_FILENAME = Polish_CI_AS
+)
+
+GO
+
+-- SET ANSI_PADDING OFF
+-- GO
+
+
+
+lub dodac do istniejacej tabeli kolumne z wlasnoscia FILESTREAM
+
+
+use PracaInz;
+GO
+
+ALTER TABLE UserProfile
+
+-- table with FILESTREAM Column must have a column of type UNIQUEIDENTIFIER as well
+ADD UI UNIQUEIDENTIFIER ROWGUIDCOL NOT NULL UNIQUE DEFAULT newid()
+GO
+
+ALTER TABLE UserProfile
+
+ADD Picture varbinary(max) FILESTREAM NULL
+
+GO

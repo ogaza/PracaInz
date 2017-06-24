@@ -1,0 +1,29 @@
+1. IIS -> Pule aplikacji -> pula, z ktorej korzysta API -> Ust. Zaawansowane -> Model Procesu -> Tozsamoss := NetworkService
+
+2. Utworzyc login na SQL Serwerze dla uzytkownika, z ktorego koszyta IIS (u mnie byl to 'ZARZ¥DZANIE NT\US£UGA SIECIOWA')
+
+USE [master]
+GO
+CREATE LOGIN [ZARZ¥DZANIE NT\US£UGA SIECIOWA] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
+GO
+
+3. Nadac prawa loginowi z pkt 2 do bazy danych, z ktorej korzysta API
+
+USE [PracaInz]
+GO
+CREATE USER [ZARZ¥DZANIE NT\US£UGA SIECIOWA] FOR LOGIN [ZARZ¥DZANIE NT\US£UGA SIECIOWA]
+GO
+USE [PracaInz]
+GO
+ALTER ROLE [db_owner] ADD MEMBER [ZARZ¥DZANIE NT\US£UGA SIECIOWA]
+GO
+
+4. Connection string z ktorego korzysta po³¹czenia do bazy danych w którym u¿ywamy obiektu SqlFileStream
+musi mieæ w³aczony parametr Integrated Security 
+
+<add name="PracaInzDbForSqlFileStream"
+      providerName="System.Data.SqlClient"
+      connectionString="Data Source=.;Database=PracaInz;Trusted_Connection=False;Integrated Security=True;" />
+
+wywo³uj¹c api do pobrania z bazy danych jakiegos obrazka, api zaloguje sie do sql serwera przy uzyciu konta windows
+skojarzonego z usluga iis
