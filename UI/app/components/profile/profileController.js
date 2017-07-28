@@ -12,9 +12,7 @@ angular.module('app')
         + 'api/account/photo/1'
         + '?time=' + new Date();
 
-      $scope.getUrl = function () {
-        return $scope.imgSrc;
-      }
+      $scope.getUrl = function () { return $scope.imgSrc; }
 
       $scope.savePicture = function () {
 
